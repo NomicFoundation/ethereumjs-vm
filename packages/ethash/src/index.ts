@@ -2,6 +2,7 @@ import { Block, BlockHeader } from '@ethereumjs/block'
 import { RLP } from '@ethereumjs/rlp'
 import {
   TWO_POW256,
+  arrToBufArr,
   bigIntToBuffer,
   bufArrToArr,
   bufferToBigInt,
@@ -258,7 +259,7 @@ export class Ethash {
   }
 
   headerHash(rawHeader: Buffer[]) {
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr(rawHeader.slice(0, -2)))))
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(rawHeader.slice(0, -2))))))
   }
 
   /**

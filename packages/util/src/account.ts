@@ -1,7 +1,11 @@
 import { RLP } from '@ethereumjs/rlp'
 import { keccak256 } from 'ethereum-cryptography/keccak'
-import { Point, utils } from 'ethereum-cryptography/secp256k1'
-import { bytesToHex } from 'ethereum-cryptography/utils'
+import {
+  privateKeyVerify,
+  publicKeyConvert,
+  publicKeyCreate,
+  publicKeyVerify,
+} from 'ethereum-cryptography/secp256k1'
 
 import {
   arrToBufArr,
@@ -165,7 +169,7 @@ export const toChecksumAddress = function (
   }
 
   const buf = Buffer.from(prefix + address, 'utf8')
-  const hash = bytesToHex(keccak256(buf))
+  const hash = keccak256(buf).toString('hex')
   let ret = '0x'
 
   for (let i = 0; i < address.length; i++) {
@@ -203,11 +207,13 @@ export const generateAddress = function (from: Buffer, nonce: Buffer): Buffer {
   if (bufferToBigInt(nonce) === BigInt(0)) {
     // in RLP we want to encode null in the case of zero nonce
     // read the RLP documentation for an answer if you dare
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr([from, null] as any)))).slice(-20)
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr([from, null] as any))))).slice(
+      -20
+    )
   }
 
   // Only take the lower 160bits of the hash
-  return Buffer.from(keccak256(RLP.encode(bufArrToArr([from, nonce])))).slice(-20)
+  return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr([from, nonce]))))).slice(-20)
 }
 
 /**
@@ -239,7 +245,11 @@ export const generateAddress2 = function (from: Buffer, salt: Buffer, initCode: 
  * Checks if the private key satisfies the rules of the curve secp256k1.
  */
 export const isValidPrivate = function (privateKey: Buffer): boolean {
-  return utils.isValidPrivateKey(privateKey)
+  try {
+    return privateKeyVerify(privateKey)
+  } catch {
+    return false
+  }
 }
 
 /**
@@ -252,25 +262,14 @@ export const isValidPublic = function (publicKey: Buffer, sanitize: boolean = fa
   assertIsBuffer(publicKey)
   if (publicKey.length === 64) {
     // Convert to SEC1 for secp256k1
-    // Automatically checks whether point is on curve
-    try {
-      Point.fromHex(Buffer.concat([Buffer.from([4]), publicKey]))
-      return true
-    } catch (e) {
-      return false
-    }
+    return publicKeyVerify(Buffer.concat([Buffer.from([4]), publicKey]))
   }
 
   if (!sanitize) {
     return false
   }
 
-  try {
-    Point.fromHex(publicKey)
-    return true
-  } catch (e) {
-    return false
-  }
+  return publicKeyVerify(publicKey)
 }
 
 /**
@@ -282,7 +281,7 @@ export const isValidPublic = function (publicKey: Buffer, sanitize: boolean = fa
 export const pubToAddress = function (pubKey: Buffer, sanitize: boolean = false): Buffer {
   assertIsBuffer(pubKey)
   if (sanitize && pubKey.length !== 64) {
-    pubKey = Buffer.from(Point.fromHex(pubKey).toRawBytes(false).slice(1))
+    pubKey = Buffer.from(publicKeyConvert(pubKey, false).slice(1))
   }
   if (pubKey.length !== 64) {
     throw new Error('Expected pubKey to be of length 64')
@@ -299,7 +298,7 @@ export const publicToAddress = pubToAddress
 export const privateToPublic = function (privateKey: Buffer): Buffer {
   assertIsBuffer(privateKey)
   // skip the type flag and use the X, Y points
-  return Buffer.from(Point.fromPrivateKey(privateKey).toRawBytes(false).slice(1))
+  return Buffer.from(publicKeyCreate(privateKey, false)).slice(1)
 }
 
 /**
@@ -316,7 +315,7 @@ export const privateToAddress = function (privateKey: Buffer): Buffer {
 export const importPublic = function (publicKey: Buffer): Buffer {
   assertIsBuffer(publicKey)
   if (publicKey.length !== 64) {
-    publicKey = Buffer.from(Point.fromHex(publicKey).toRawBytes(false).slice(1))
+    publicKey = Buffer.from(publicKeyConvert(publicKey, false).slice(1))
   }
   return publicKey
 }

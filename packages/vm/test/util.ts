@@ -18,7 +18,6 @@ import {
   toBuffer,
 } from '@ethereumjs/util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
-import { bytesToHex } from 'ethereum-cryptography/utils'
 
 import type { VmState } from '../src/eei/vmState'
 import type { BlockOptions } from '@ethereumjs/block'
@@ -138,7 +137,7 @@ export async function verifyPostConditions(state: any, testData: any, t: tape.Te
     const keyMap: any = {}
 
     for (const key in testData) {
-      const hash = bytesToHex(keccak256(Buffer.from(stripHexPrefix(key), 'hex')))
+      const hash = keccak256(Buffer.from(stripHexPrefix(key), 'hex')).toString('hex')
       hashedAccounts[hash] = testData[key]
       keyMap[hash] = key
     }
@@ -209,8 +208,9 @@ export function verifyAccountPostConditions(
 
     const hashedStorage: any = {}
     for (const key in acctData.storage) {
-      hashedStorage[bytesToHex(keccak256(setLengthLeft(Buffer.from(key.slice(2), 'hex'), 32)))] =
-        acctData.storage[key]
+      hashedStorage[
+        keccak256(setLengthLeft(Buffer.from(key.slice(2), 'hex'), 32)).toString('hex')
+      ] = acctData.storage[key]
     }
 
     state.root(account.storageRoot)

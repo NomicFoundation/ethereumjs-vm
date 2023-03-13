@@ -11,7 +11,6 @@ import {
   setLengthRight,
 } from '@ethereumjs/util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
-import { bytesToHex } from 'ethereum-cryptography/utils'
 
 import { ERROR } from '../exceptions'
 
@@ -373,7 +372,7 @@ export const handlers: Map<number, OpHandler> = new Map([
       if (length !== BigInt(0)) {
         data = runState.memory.read(Number(offset), Number(length))
       }
-      const r = BigInt('0x' + bytesToHex(keccak256(data)))
+      const r = BigInt('0x' + keccak256(data).toString('hex'))
       runState.stack.push(r)
     },
   ],

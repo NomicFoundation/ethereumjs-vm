@@ -224,7 +224,7 @@ export class Transaction extends BaseTransaction<Transaction> {
   getMessageToSign(hashMessage = true) {
     const message = this._getMessageToSign()
     if (hashMessage) {
-      return Buffer.from(keccak256(RLP.encode(bufArrToArr(message))))
+      return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(message)))))
     } else {
       return message
     }
@@ -269,12 +269,12 @@ export class Transaction extends BaseTransaction<Transaction> {
 
     if (Object.isFrozen(this)) {
       if (!this.cache.hash) {
-        this.cache.hash = Buffer.from(keccak256(RLP.encode(bufArrToArr(this.raw()))))
+        this.cache.hash = Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(this.raw())))))
       }
       return this.cache.hash
     }
 
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr(this.raw()))))
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(this.raw())))))
   }
 
   /**
@@ -286,7 +286,7 @@ export class Transaction extends BaseTransaction<Transaction> {
       throw new Error(msg)
     }
     const message = this._getMessageToSign()
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr(message))))
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(message)))))
   }
 
   /**

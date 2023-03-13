@@ -1,3 +1,4 @@
+import { arrToBufArr } from '@ethereumjs/util'
 import { blobToKzgCommitment } from 'c-kzg'
 import { sha256 } from 'ethereum-cryptography/sha256'
 
@@ -73,7 +74,7 @@ export const blobsToCommitments = (blobs: Buffer[]) => {
 export const computeVersionedHash = (commitment: Uint8Array, blobCommitmentVersion: number) => {
   const computedVersionedHash = new Uint8Array(32)
   computedVersionedHash.set([blobCommitmentVersion], 0)
-  computedVersionedHash.set(sha256(commitment).slice(1), 1)
+  computedVersionedHash.set(sha256(arrToBufArr(commitment)).slice(1), 1)
   return computedVersionedHash
 }
 

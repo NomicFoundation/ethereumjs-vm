@@ -478,7 +478,7 @@ export class Block {
   validateUnclesHash(): boolean {
     const uncles = this.uncleHeaders.map((uh) => uh.raw())
     const raw = RLP.encode(bufArrToArr(uncles))
-    return Buffer.from(keccak256(raw)).equals(this.header.uncleHash)
+    return Buffer.from(keccak256(arrToBufArr(raw))).equals(this.header.uncleHash)
   }
 
   /**

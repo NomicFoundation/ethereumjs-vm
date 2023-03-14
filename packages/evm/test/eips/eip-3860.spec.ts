@@ -1,5 +1,5 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Address, privateToAddress } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Address, privateToAddress } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { EVM } from '../../src'

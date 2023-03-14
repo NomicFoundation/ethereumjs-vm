@@ -1,10 +1,10 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { BlobEIP4844Transaction, initKZG } from '@ethereumjs/tx'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { BlobEIP4844Transaction, initKZG } from '@nomicfoundation/ethereumjs-tx'
 import {
   blobsToCommitments,
   commitmentsToVersionedHashes,
   getBlobs,
-} from '@ethereumjs/tx/dist/utils/blobHelpers'
+} from '@nomicfoundation/ethereumjs-tx/dist/utils/blobHelpers'
 import * as kzg from 'c-kzg'
 import { randomBytes } from 'crypto'
 import * as tape from 'tape'

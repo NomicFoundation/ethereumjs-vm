@@ -1,5 +1,10 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Address, KECCAK256_RLP, KECCAK256_RLP_ARRAY, zeros } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import {
+  Address,
+  KECCAK256_RLP,
+  KECCAK256_RLP_ARRAY,
+  zeros,
+} from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Block } from '../src/block'

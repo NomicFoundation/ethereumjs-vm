@@ -1,11 +1,11 @@
-import { Block } from '@ethereumjs/block'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import { MemoryLevel } from 'memory-level'
 import * as tape from 'tape'
 
 import { Ethash } from '../src'
 
-import type { BlockHeader } from '@ethereumjs/block'
+import type { BlockHeader } from '@nomicfoundation/ethereumjs-block'
 
 const cacheDB = new MemoryLevel()
 const common = new Common({ chain: Chain.Ropsten, hardfork: Hardfork.Petersburg })

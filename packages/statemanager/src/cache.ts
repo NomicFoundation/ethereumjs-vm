@@ -1,7 +1,7 @@
-import { Account } from '@ethereumjs/util'
+import { Account } from '@nomicfoundation/ethereumjs-util'
 import { OrderedMap } from 'js-sdsl'
 
-import type { Address } from '@ethereumjs/util'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 import type { OrderedMapIterator } from 'js-sdsl'
 
 export type getCb = (address: Address) => Promise<Account | undefined>

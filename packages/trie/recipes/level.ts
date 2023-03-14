@@ -1,6 +1,6 @@
 import { MemoryLevel } from 'memory-level'
 
-import type { BatchDBOp, DB } from '@ethereumjs/trie'
+import type { BatchDBOp, DB } from '@nomicfoundation/ethereumjs-trie'
 import type { AbstractLevel } from 'abstract-level'
 
 const ENCODING_OPTS = { keyEncoding: 'buffer', valueEncoding: 'buffer' }

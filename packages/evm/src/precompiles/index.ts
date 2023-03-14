@@ -1,5 +1,5 @@
-import { Hardfork } from '@ethereumjs/common'
-import { Address } from '@ethereumjs/util'
+import { Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Address } from '@nomicfoundation/ethereumjs-util'
 
 import { precompile01 } from './01-ecrecover'
 import { precompile02 } from './02-sha256'
@@ -22,7 +22,7 @@ import { precompile12 } from './12-bls12-map-fp2-to-g2'
 import { precompile14 } from './14-kzg-point-evaluation'
 
 import type { PrecompileFunc, PrecompileInput } from './types'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 interface Precompiles {
   [key: string]: PrecompileFunc

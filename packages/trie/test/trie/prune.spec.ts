@@ -1,4 +1,4 @@
-import { KECCAK256_RLP } from '@ethereumjs/util'
+import { KECCAK256_RLP } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Trie } from '../../src'

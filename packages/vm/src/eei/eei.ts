@@ -1,11 +1,11 @@
-import { bufferToBigInt } from '@ethereumjs/util'
+import { bufferToBigInt } from '@nomicfoundation/ethereumjs-util'
 
 import { VmState } from './vmState'
 
-import type { Common } from '@ethereumjs/common'
-import type { EEIInterface } from '@ethereumjs/evm'
-import type { StateManager } from '@ethereumjs/statemanager'
-import type { Address } from '@ethereumjs/util'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type { EEIInterface } from '@nomicfoundation/ethereumjs-evm'
+import type { StateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 
 type Block = {
   hash(): Buffer

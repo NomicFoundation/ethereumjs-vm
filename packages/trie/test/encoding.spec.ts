@@ -1,4 +1,4 @@
-import { toBuffer } from '@ethereumjs/util'
+import { toBuffer } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Trie } from '../src'

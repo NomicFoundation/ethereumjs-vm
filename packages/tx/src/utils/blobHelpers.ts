@@ -1,6 +1,7 @@
-import { arrToBufArr } from '@ethereumjs/util'
-import { blobToKzgCommitment } from 'c-kzg'
+import { arrToBufArr } from '@nomicfoundation/ethereumjs-util'
 import { sha256 } from 'ethereum-cryptography/sha256'
+
+const { blobToKzgCommitment } = require('c-kzg')
 
 /**
  * These utilities for constructing blobs are borrowed from https://github.com/Inphi/eip4844-interop.git

@@ -1,4 +1,4 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import {
   Address,
   MAX_INTEGER,
@@ -10,7 +10,7 @@ import {
   publicToAddress,
   toBuffer,
   unpadBuffer,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { Capability } from './types'
 
@@ -24,7 +24,7 @@ import type {
   TxOptions,
   TxValuesArray,
 } from './types'
-import type { BigIntLike } from '@ethereumjs/util'
+import type { BigIntLike } from '@nomicfoundation/ethereumjs-util'
 
 interface TransactionCache {
   hash: Buffer | undefined

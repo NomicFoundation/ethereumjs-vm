@@ -1,4 +1,4 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import * as tape from 'tape'
 
 import { blockFromRpc } from '../src/from-rpc'
@@ -17,7 +17,7 @@ import * as blockDataWithUncles from './testdata/testdata-from-rpc-with-uncles.j
 import * as uncleBlockData from './testdata/testdata-from-rpc-with-uncles_uncle-block-data.json'
 import * as blockData from './testdata/testdata-from-rpc.json'
 
-import type { Transaction } from '@ethereumjs/tx'
+import type { Transaction } from '@nomicfoundation/ethereumjs-tx'
 
 tape('[fromRPC]: block #2924874', function (t) {
   const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Istanbul })

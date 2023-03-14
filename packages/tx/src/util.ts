@@ -1,10 +1,10 @@
-import { bufferToHex, setLengthLeft, toBuffer } from '@ethereumjs/util'
+import { bufferToHex, setLengthLeft, toBuffer } from '@nomicfoundation/ethereumjs-util'
 
 import { isAccessList } from './types'
 
 import type { BlobEIP4844Transaction } from './eip4844Transaction'
 import type { AccessList, AccessListBuffer, AccessListItem } from './types'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 export function checkMaxInitCodeSize(common: Common, length: number) {
   const maxInitCodeSize = common.param('vm', 'maxInitCodeSize')

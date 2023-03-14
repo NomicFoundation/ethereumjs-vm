@@ -1,13 +1,18 @@
-import { Block, BlockHeader, valuesArrayToHeaderData } from '@ethereumjs/block'
-import { RLP } from '@ethereumjs/rlp'
-import { KECCAK256_RLP, KECCAK256_RLP_ARRAY, arrToBufArr, bufferToBigInt } from '@ethereumjs/util'
+import { Block, BlockHeader, valuesArrayToHeaderData } from '@nomicfoundation/ethereumjs-block'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import {
+  KECCAK256_RLP,
+  KECCAK256_RLP_ARRAY,
+  arrToBufArr,
+  bufferToBigInt,
+} from '@nomicfoundation/ethereumjs-util'
 
 import { Cache } from './cache'
 import { DBOp, DBTarget } from './operation'
 
 import type { DBOpData, DatabaseKey } from './operation'
-import type { BlockBodyBuffer, BlockBuffer, BlockOptions } from '@ethereumjs/block'
-import type { Common } from '@ethereumjs/common'
+import type { BlockBodyBuffer, BlockBuffer, BlockOptions } from '@nomicfoundation/ethereumjs-block'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 import type { AbstractLevel } from 'abstract-level'
 
 class NotFoundError extends Error {

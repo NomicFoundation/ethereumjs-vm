@@ -1,13 +1,13 @@
 import { join } from 'path'
 import { readFileSync } from 'fs'
 import { defaultAbiCoder as AbiCoder, Interface } from '@ethersproject/abi'
-import { Address } from '@ethereumjs/util'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Transaction } from '@ethereumjs/tx'
+import { Address } from '@nomicfoundation/ethereumjs-util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Transaction } from '@nomicfoundation/ethereumjs-tx'
 import { VM } from '..'
 import { buildTransaction, encodeDeployment, encodeFunction } from './helpers/tx-builder'
 import { getAccountNonce, insertAccount } from './helpers/account-utils'
-import { Block } from '@ethereumjs/block'
+import { Block } from '@nomicfoundation/ethereumjs-block'
 const solc = require('solc')
 
 const INITIAL_GREETING = 'Hello, World!'

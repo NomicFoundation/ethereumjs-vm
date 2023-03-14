@@ -1,5 +1,5 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { FeeMarketEIP1559Transaction } from '@ethereumjs/tx'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { FeeMarketEIP1559Transaction } from '@nomicfoundation/ethereumjs-tx'
 import * as tape from 'tape'
 
 import { Block } from '../src/block'

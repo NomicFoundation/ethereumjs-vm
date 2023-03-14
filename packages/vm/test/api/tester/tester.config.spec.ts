@@ -1,4 +1,4 @@
-import { Hardfork } from '@ethereumjs/common'
+import { Hardfork } from '@nomicfoundation/ethereumjs-common'
 import * as tape from 'tape'
 
 import { getCommon } from '../../tester/config'

@@ -1,6 +1,6 @@
 import type { Blockchain } from '..'
-import type { Block, BlockHeader } from '@ethereumjs/block'
-import type { ConsensusAlgorithm } from '@ethereumjs/common'
+import type { Block, BlockHeader } from '@nomicfoundation/ethereumjs-block'
+import type { ConsensusAlgorithm } from '@nomicfoundation/ethereumjs-common'
 
 /**
  * Interface that a consensus class needs to implement.

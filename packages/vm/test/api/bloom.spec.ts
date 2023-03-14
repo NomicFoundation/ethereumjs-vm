@@ -1,4 +1,4 @@
-import * as utils from '@ethereumjs/util'
+import * as utils from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Bloom } from '../../src/bloom'

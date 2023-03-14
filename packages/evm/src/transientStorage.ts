@@ -1,5 +1,5 @@
 import type { TransientStorageInterface } from './types'
-import type { Address } from '@ethereumjs/util'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 
 type TransientStorageCurrent = Map<string, Map<string, Buffer>>
 

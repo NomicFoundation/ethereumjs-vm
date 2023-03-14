@@ -1,17 +1,24 @@
-import { Block, calcExcessDataGas } from '@ethereumjs/block'
-import { ConsensusType } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { Trie } from '@ethereumjs/trie'
-import { BlobEIP4844Transaction } from '@ethereumjs/tx'
-import { Address, GWEI_TO_WEI, TypeOutput, Withdrawal, toBuffer, toType } from '@ethereumjs/util'
+import { Block, calcExcessDataGas } from '@nomicfoundation/ethereumjs-block'
+import { ConsensusType } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import { BlobEIP4844Transaction } from '@nomicfoundation/ethereumjs-tx'
+import {
+  Address,
+  GWEI_TO_WEI,
+  TypeOutput,
+  Withdrawal,
+  toBuffer,
+  toType,
+} from '@nomicfoundation/ethereumjs-util'
 
 import { Bloom } from './bloom'
 import { calculateMinerReward, encodeReceipt, rewardAccount } from './runBlock'
 
 import type { BuildBlockOpts, BuilderOpts, RunTxResult, SealBlockOpts } from './types'
 import type { VM } from './vm'
-import type { HeaderData } from '@ethereumjs/block'
-import type { TypedTransaction } from '@ethereumjs/tx'
+import type { HeaderData } from '@nomicfoundation/ethereumjs-block'
+import type { TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
 
 export enum BuildStatus {
   Reverted = 'reverted',

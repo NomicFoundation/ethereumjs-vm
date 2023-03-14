@@ -1,8 +1,8 @@
-import { Block, BlockHeader } from '@ethereumjs/block'
-import { Blockchain } from '@ethereumjs/blockchain'
-import { RLP } from '@ethereumjs/rlp'
-import { Transaction, TransactionFactory } from '@ethereumjs/tx'
-import { arrToBufArr } from '@ethereumjs/util'
+import { Block, BlockHeader } from '@nomicfoundation/ethereumjs-block'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { Transaction, TransactionFactory } from '@nomicfoundation/ethereumjs-tx'
+import { arrToBufArr } from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 import { readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
@@ -13,8 +13,8 @@ import { getCommon } from '../tester/config'
 import { makeBlockFromEnv, setupPreConditions } from '../util'
 
 import type { PostByzantiumTxReceipt } from '../../src'
-import type { TypedTransaction } from '@ethereumjs/tx'
-import type { NestedBufferArray } from '@ethereumjs/util'
+import type { TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
+import type { NestedBufferArray } from '@nomicfoundation/ethereumjs-util'
 
 const yargs = require('yargs/yargs')
 

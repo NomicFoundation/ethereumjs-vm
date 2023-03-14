@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   MAX_INTEGER,
   arrToBufArr,
@@ -10,7 +10,7 @@ import {
   toBuffer,
   unpadBuffer,
   validateNoLeadingZeroes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 
 import { BaseTransaction } from './baseTransaction'
@@ -18,7 +18,7 @@ import { Capability } from './types'
 import { checkMaxInitCodeSize } from './util'
 
 import type { JsonTx, TxData, TxOptions, TxValuesArray } from './types'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 const TRANSACTION_TYPE = 0
 
@@ -211,8 +211,8 @@ export class Transaction extends BaseTransaction<Transaction> {
    * and you might need to do yourself with:
    *
    * ```javascript
-   * import { bufArrToArr } from '@ethereumjs/util'
-   * import { RLP } from '@ethereumjs/rlp'
+   * import { bufArrToArr } from '@nomicfoundation/ethereumjs-util'
+   * import { RLP } from '@nomicfoundation/ethereumjs-rlp'
    * const message = tx.getMessageToSign(false)
    * const serializedMessage = Buffer.from(RLP.encode(bufArrToArr(message))) // use this for the HW wallet input
    * ```

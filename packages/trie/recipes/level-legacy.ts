@@ -1,6 +1,6 @@
 import level from 'level-mem'
 
-import type { BatchDBOp, DB } from '@ethereumjs/trie'
+import type { BatchDBOp, DB } from '@nomicfoundation/ethereumjs-trie'
 import type { LevelUp } from 'levelup'
 
 const ENCODING_OPTS = { keyEncoding: 'binary', valueEncoding: 'binary' }

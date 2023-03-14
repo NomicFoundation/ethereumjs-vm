@@ -1,12 +1,18 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { Address, KECCAK256_RLP, KECCAK256_RLP_ARRAY, toBuffer, zeros } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import {
+  Address,
+  KECCAK256_RLP,
+  KECCAK256_RLP_ARRAY,
+  toBuffer,
+  zeros,
+} from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Block } from '../src'
 import { BlockHeader } from '../src/header'
 
-import type { CliqueConfig } from '@ethereumjs/common'
+import type { CliqueConfig } from '@nomicfoundation/ethereumjs-common'
 
 const blocksGoerli = require('./testdata/blocks_goerli.json')
 const blocksMainnet = require('./testdata/blocks_mainnet.json')

@@ -1,4 +1,4 @@
-import { Common, Hardfork } from '@ethereumjs/common'
+import { Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import * as kzg from 'c-kzg'
 import { randomBytes } from 'crypto'
 import * as tape from 'tape'

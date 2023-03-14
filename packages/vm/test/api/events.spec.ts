@@ -1,6 +1,6 @@
-import { Block } from '@ethereumjs/block'
-import { FeeMarketEIP1559Transaction } from '@ethereumjs/tx'
-import { Account, Address, bufferToHex, toBuffer } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { FeeMarketEIP1559Transaction } from '@nomicfoundation/ethereumjs-tx'
+import { Account, Address, bufferToHex, toBuffer } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { VM } from '../../src/vm'

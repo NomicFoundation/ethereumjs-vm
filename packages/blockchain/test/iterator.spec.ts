@@ -4,7 +4,7 @@ import { Blockchain } from '../src'
 
 import { createTestDB, generateBlockchain, generateConsecutiveBlock } from './util'
 
-import type { Block } from '@ethereumjs/block'
+import type { Block } from '@nomicfoundation/ethereumjs-block'
 
 tape('blockchain test', (t) => {
   t.test('should iterate through 24 blocks without reorg', async (st) => {

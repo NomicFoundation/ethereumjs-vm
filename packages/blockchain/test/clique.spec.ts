@@ -1,13 +1,19 @@
-import { Block } from '@ethereumjs/block'
-import { Chain, Common, ConsensusAlgorithm, ConsensusType, Hardfork } from '@ethereumjs/common'
-import { Address } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import {
+  Chain,
+  Common,
+  ConsensusAlgorithm,
+  ConsensusType,
+  Hardfork,
+} from '@nomicfoundation/ethereumjs-common'
+import { Address } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Blockchain } from '../src'
 import { CLIQUE_NONCE_AUTH, CLIQUE_NONCE_DROP } from '../src/consensus/clique'
 
 import type { CliqueConsensus } from '../src/consensus/clique'
-import type { CliqueConfig } from '@ethereumjs/common'
+import type { CliqueConfig } from '@nomicfoundation/ethereumjs-common'
 
 tape('Clique: Initialization', (t) => {
   t.test('should initialize a clique blockchain', async (st) => {

@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 import {
   privateKeyVerify,

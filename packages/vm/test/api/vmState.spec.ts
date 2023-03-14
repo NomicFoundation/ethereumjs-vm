@@ -1,7 +1,7 @@
-import { Blockchain } from '@ethereumjs/blockchain'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { DefaultStateManager } from '@ethereumjs/statemanager'
-import { Address } from '@ethereumjs/util'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { DefaultStateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import { Address } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { VmState } from '../../src/eei/vmState'

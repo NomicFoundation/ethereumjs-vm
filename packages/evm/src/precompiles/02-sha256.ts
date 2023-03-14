@@ -1,4 +1,4 @@
-import { toBuffer } from '@ethereumjs/util'
+import { toBuffer } from '@nomicfoundation/ethereumjs-util'
 import { sha256 } from 'ethereum-cryptography/sha256'
 
 import { OOGResult } from '../evm'

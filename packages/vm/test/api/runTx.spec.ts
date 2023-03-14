@@ -1,20 +1,20 @@
-import { Block, BlockHeader } from '@ethereumjs/block'
-import { Blockchain } from '@ethereumjs/blockchain'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Block, BlockHeader } from '@nomicfoundation/ethereumjs-block'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import {
   BlobEIP4844Transaction,
   FeeMarketEIP1559Transaction,
   Transaction,
   TransactionFactory,
-} from '@ethereumjs/tx'
-import { Account, Address, KECCAK256_NULL, MAX_INTEGER } from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-tx'
+import { Account, Address, KECCAK256_NULL, MAX_INTEGER } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { VM } from '../../src/vm'
 
 import { createAccount, getTransaction, setBalance } from './utils'
 
-import type { FeeMarketEIP1559TxData } from '@ethereumjs/tx'
+import type { FeeMarketEIP1559TxData } from '@nomicfoundation/ethereumjs-tx'
 
 const TRANSACTION_TYPES = [
   {

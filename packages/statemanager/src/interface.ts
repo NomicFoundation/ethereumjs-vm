@@ -1,5 +1,5 @@
 import type { Proof } from './stateManager'
-import type { Account, Address } from '@ethereumjs/util'
+import type { Account, Address } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * Storage values of an account

@@ -1,11 +1,11 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Transaction } from '@ethereumjs/tx'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Transaction } from '@nomicfoundation/ethereumjs-tx'
 import * as tape from 'tape'
 
 import { VM } from '../../../src/vm'
 
-import type { InterpreterStep } from '@ethereumjs/evm/dist/interpreter'
-import type { Address } from '@ethereumjs/util'
+import type { InterpreterStep } from '@nomicfoundation/ethereumjs-evm/dist/interpreter'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 
 const pkey = Buffer.from('20'.repeat(32), 'hex')
 

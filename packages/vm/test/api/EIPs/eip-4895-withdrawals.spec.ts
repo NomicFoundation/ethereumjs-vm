@@ -1,15 +1,21 @@
-import { Block } from '@ethereumjs/block'
-import { Blockchain, parseGethGenesisState } from '@ethereumjs/blockchain'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { decode } from '@ethereumjs/rlp'
-import { FeeMarketEIP1559Transaction } from '@ethereumjs/tx'
-import { Address, GWEI_TO_WEI, KECCAK256_RLP, Withdrawal, zeros } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Blockchain, parseGethGenesisState } from '@nomicfoundation/ethereumjs-blockchain'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { decode } from '@nomicfoundation/ethereumjs-rlp'
+import { FeeMarketEIP1559Transaction } from '@nomicfoundation/ethereumjs-tx'
+import {
+  Address,
+  GWEI_TO_WEI,
+  KECCAK256_RLP,
+  Withdrawal,
+  zeros,
+} from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import genesisJSON = require('../../../../client/test/testdata/geth-genesis/withdrawals.json')
 import { VM } from '../../../src/vm'
 
-import type { WithdrawalBuffer, WithdrawalData } from '@ethereumjs/util'
+import type { WithdrawalBuffer, WithdrawalData } from '@nomicfoundation/ethereumjs-util'
 
 const common = new Common({
   chain: Chain.Mainnet,

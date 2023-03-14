@@ -1,7 +1,7 @@
-import { Block } from '@ethereumjs/block'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { ERROR } from '@ethereumjs/evm/dist/exceptions'
-import { Transaction } from '@ethereumjs/tx'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { ERROR } from '@nomicfoundation/ethereumjs-evm/dist/exceptions'
+import { Transaction } from '@nomicfoundation/ethereumjs-tx'
 import {
   Address,
   bigIntToBuffer,
@@ -11,14 +11,14 @@ import {
   setLengthLeft,
   toBuffer,
   zeros,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 import * as tape from 'tape'
 
 import { VM } from '../../../src/vm'
 
-import type { InterpreterStep } from '@ethereumjs/evm/dist/interpreter'
-import type { ECDSASignature } from '@ethereumjs/util'
+import type { InterpreterStep } from '@nomicfoundation/ethereumjs-evm/dist/interpreter'
+import type { ECDSASignature } from '@nomicfoundation/ethereumjs-util'
 
 const common = new Common({
   chain: Chain.Mainnet,

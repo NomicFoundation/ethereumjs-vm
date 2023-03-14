@@ -23,8 +23,13 @@ import type { FeeMarketEIP1559Transaction } from './eip1559Transaction'
 import type { AccessListEIP2930Transaction } from './eip2930Transaction'
 import type { BlobEIP4844Transaction } from './eip4844Transaction'
 import type { Transaction } from './legacyTransaction'
-import type { Common } from '@ethereumjs/common'
-import type { AddressLike, BigIntLike, BufferLike, PrefixedHexString } from '@ethereumjs/util'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type {
+  AddressLike,
+  BigIntLike,
+  BufferLike,
+  PrefixedHexString,
+} from '@nomicfoundation/ethereumjs-util'
 
 const Bytes20 = new ByteVectorType(20)
 const Bytes32 = new ByteVectorType(32)

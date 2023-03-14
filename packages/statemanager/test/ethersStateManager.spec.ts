@@ -1,8 +1,8 @@
-import { Block } from '@ethereumjs/block'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { FeeMarketEIP1559Transaction, TransactionFactory } from '@ethereumjs/tx'
-import { Address, bigIntToBuffer, setLengthLeft } from '@ethereumjs/util'
-import { VM } from '@ethereumjs/vm'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { FeeMarketEIP1559Transaction, TransactionFactory } from '@nomicfoundation/ethereumjs-tx'
+import { Address, bigIntToBuffer, setLengthLeft } from '@nomicfoundation/ethereumjs-util'
+import { VM } from '@nomicfoundation/ethereumjs-vm'
 import { BaseProvider, JsonRpcProvider, StaticJsonRpcProvider } from '@ethersproject/providers'
 import * as tape from 'tape'
 

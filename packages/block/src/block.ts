@@ -1,7 +1,11 @@
-import { ConsensusType } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { Trie } from '@ethereumjs/trie'
-import { BlobEIP4844Transaction, Capability, TransactionFactory } from '@ethereumjs/tx'
+import { ConsensusType } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import {
+  BlobEIP4844Transaction,
+  Capability,
+  TransactionFactory,
+} from '@nomicfoundation/ethereumjs-tx'
 import {
   KECCAK256_RLP,
   Withdrawal,
@@ -12,7 +16,7 @@ import {
   intToHex,
   isHexPrefixed,
   ssz,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 import { ethers } from 'ethers'
 
@@ -21,14 +25,14 @@ import { BlockHeader } from './header'
 import { getDataGasPrice } from './helpers'
 
 import type { BlockBuffer, BlockData, BlockOptions, JsonBlock, JsonRpcBlock } from './types'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 import type {
   FeeMarketEIP1559Transaction,
   Transaction,
   TxOptions,
   TypedTransaction,
-} from '@ethereumjs/tx'
-import type { WithdrawalBuffer } from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-tx'
+import type { WithdrawalBuffer } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * An object that represents the block.

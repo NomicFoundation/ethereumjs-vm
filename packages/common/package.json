@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/common",
+  "name": "@nomicfoundation/ethereumjs-common",
   "version": "3.1.0",
   "description": "Resources common to all Ethereum implementations",
   "keywords": [
@@ -48,7 +48,7 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/util": "^8.0.4",
+    "@nomicfoundation/ethereumjs-util": "8.0.4",
     "crc-32": "^1.2.0"
   }
 }

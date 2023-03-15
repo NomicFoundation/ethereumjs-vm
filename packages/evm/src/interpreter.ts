@@ -874,7 +874,7 @@ export class Interpreter {
     this._env.contract.nonce += BigInt(1)
     await this._eei.putAccount(this._env.address, this._env.contract)
 
-    if (this._common.isActivatedEIP(3860)) {
+    if (this._common.isActivatedEIP(3860) && !this._evm._allowUnlimitedContractSize) {
       if (data.length > Number(this._common.param('vm', 'maxInitCodeSize'))) {
         return BigInt(0)
       }

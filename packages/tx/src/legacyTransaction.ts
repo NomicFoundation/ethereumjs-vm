@@ -134,7 +134,7 @@ export class Transaction extends BaseTransaction<Transaction> {
       }
     }
 
-    if (this.common.isActivatedEIP(3860)) {
+    if (this.common.isActivatedEIP(3860) && this.txOptions.disableMaxInitCodeSizeCheck !== true) {
       checkMaxInitCodeSize(this.common, this.data.length)
     }
 

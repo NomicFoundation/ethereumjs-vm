@@ -416,7 +416,7 @@ export class EVM implements EVMInterface {
     // Reduce tx value from sender
     await this._reduceSenderBalance(account, message)
 
-    if (this._common.isActivatedEIP(3860)) {
+    if (this._common.isActivatedEIP(3860) && !this._allowUnlimitedContractSize) {
       if (message.data.length > Number(this._common.param('vm', 'maxInitCodeSize'))) {
         return {
           createdAddress: message.to,

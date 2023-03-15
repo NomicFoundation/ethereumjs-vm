@@ -143,7 +143,7 @@ export class BlobEIP4844Transaction extends BaseTransaction<BlobEIP4844Transacti
     this._validateYParity()
     this._validateHighS()
 
-    if (this.common.isActivatedEIP(3860)) {
+    if (this.common.isActivatedEIP(3860) && this.txOptions.disableMaxInitCodeSizeCheck !== true) {
       checkMaxInitCodeSize(this.common, this.data.length)
     }
 

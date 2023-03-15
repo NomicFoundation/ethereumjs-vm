@@ -95,6 +95,12 @@ export interface TxOptions {
    * Default: true
    */
   freeze?: boolean
+  /**
+   * Only present in the Nomic Foundation fork. This option is used to disable
+   * the initcode size check (EIP-3860) when Hardhat's  allowUnlimitedContractSize
+   * options is enabled.
+   */
+  disableMaxInitCodeSizeCheck?: boolean
 }
 
 /*

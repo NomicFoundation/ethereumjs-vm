@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   MAX_INTEGER,
   arrToBufArr,
@@ -9,7 +9,7 @@ import {
   ecrecover,
   toBuffer,
   validateNoLeadingZeroes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 
 import { BaseTransaction } from './baseTransaction'
@@ -23,7 +23,7 @@ import type {
   JsonTx,
   TxOptions,
 } from './types'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 const TRANSACTION_TYPE = 2
 const TRANSACTION_TYPE_BUFFER = Buffer.from(TRANSACTION_TYPE.toString(16).padStart(2, '0'), 'hex')
@@ -192,7 +192,7 @@ export class FeeMarketEIP1559Transaction extends BaseTransaction<FeeMarketEIP155
     this._validateYParity()
     this._validateHighS()
 
-    if (this.common.isActivatedEIP(3860)) {
+    if (this.common.isActivatedEIP(3860) && this.txOptions.disableMaxInitCodeSizeCheck !== true) {
       checkMaxInitCodeSize(this.common, this.data.length)
     }
 
@@ -379,7 +379,7 @@ export class FeeMarketEIP1559Transaction extends BaseTransaction<FeeMarketEIP155
         value: this.value,
         data: this.data,
         accessList: this.accessList,
-        v: v - BigInt(27), // This looks extremely hacky: @ethereumjs/util actually adds 27 to the value, the recovery bit is either 0 or 1.
+        v: v - BigInt(27), // This looks extremely hacky: @nomicfoundation/ethereumjs-util actually adds 27 to the value, the recovery bit is either 0 or 1.
         r: bufferToBigInt(r),
         s: bufferToBigInt(s),
       },

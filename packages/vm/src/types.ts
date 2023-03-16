@@ -1,11 +1,11 @@
 import type { Bloom } from './bloom'
-import type { Block, BlockOptions, HeaderData } from '@ethereumjs/block'
-import type { BlockchainInterface } from '@ethereumjs/blockchain'
-import type { Common } from '@ethereumjs/common'
-import type { EEIInterface, EVMInterface, EVMResult, Log } from '@ethereumjs/evm'
-import type { StateManager } from '@ethereumjs/statemanager'
-import type { AccessList, TypedTransaction } from '@ethereumjs/tx'
-import type { BigIntLike, WithdrawalData } from '@ethereumjs/util'
+import type { Block, BlockOptions, HeaderData } from '@nomicfoundation/ethereumjs-block'
+import type { BlockchainInterface } from '@nomicfoundation/ethereumjs-blockchain'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type { EEIInterface, EVMInterface, EVMResult, Log } from '@nomicfoundation/ethereumjs-evm'
+import type { StateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import type { AccessList, TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
+import type { BigIntLike, WithdrawalData } from '@nomicfoundation/ethereumjs-util'
 export type TxReceipt = PreByzantiumTxReceipt | PostByzantiumTxReceipt
 
 /**
@@ -69,7 +69,7 @@ export interface VMOpts {
    * - `hardfork`: `mainnet` hardforks up to the `Merge` hardfork
    * - `eips`: `2537` (usage e.g. `eips: [ 2537, ]`)
    *
-   * Note: check the associated `@ethereumjs/evm` instance options
+   * Note: check the associated `@nomicfoundation/ethereumjs-evm` instance options
    * documentation for supported EIPs.
    *
    * ### Default Setup
@@ -201,7 +201,7 @@ export interface SealBlockOpts {
  */
 export interface RunBlockOpts {
   /**
-   * The @ethereumjs/block to process
+   * The @nomicfoundation/ethereumjs-block to process
    */
   block: Block
   /**
@@ -288,12 +288,12 @@ export interface AfterBlockEvent extends RunBlockResult {
  */
 export interface RunTxOpts {
   /**
-   * The `@ethereumjs/block` the `tx` belongs to.
+   * The `@nomicfoundation/ethereumjs-block` the `tx` belongs to.
    * If omitted, a default blank block will be used.
    */
   block?: Block
   /**
-   * An `@ethereumjs/tx` to run
+   * An `@nomicfoundation/ethereumjs-tx` to run
    */
   tx: TypedTransaction
   /**

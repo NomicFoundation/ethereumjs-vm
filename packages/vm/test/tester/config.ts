@@ -1,4 +1,4 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import * as path from 'path'
 
 /**

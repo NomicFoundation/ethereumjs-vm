@@ -1,12 +1,12 @@
 import type { BlockHeader } from './header'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 import type {
   AccessListEIP2930TxData,
   FeeMarketEIP1559TxData,
   JsonRpcTx,
   JsonTx,
   TxData,
-} from '@ethereumjs/tx'
+} from '@nomicfoundation/ethereumjs-tx'
 import type {
   AddressLike,
   BigIntLike,
@@ -14,7 +14,7 @@ import type {
   JsonRpcWithdrawal,
   WithdrawalBuffer,
   WithdrawalData,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 /**
  * An object to set to which blockchain the blocks and their headers belong. This could be specified

@@ -1,6 +1,6 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { bufArrToArr } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { bufArrToArr } from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 
 import { Block } from '../src'

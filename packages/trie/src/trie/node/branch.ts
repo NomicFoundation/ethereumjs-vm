@@ -1,5 +1,5 @@
-import { RLP } from '@ethereumjs/rlp'
-import { bufArrToArr } from '@ethereumjs/util'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { bufArrToArr } from '@nomicfoundation/ethereumjs-util'
 
 import type { EmbeddedNode } from '../../types'
 

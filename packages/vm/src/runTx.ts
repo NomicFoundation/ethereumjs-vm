@@ -1,7 +1,7 @@
-import { Block, getDataGasPrice } from '@ethereumjs/block'
-import { ConsensusType, Hardfork } from '@ethereumjs/common'
-import { BlobEIP4844Transaction, Capability } from '@ethereumjs/tx'
-import { Address, KECCAK256_NULL, short, toBuffer } from '@ethereumjs/util'
+import { Block, getDataGasPrice } from '@nomicfoundation/ethereumjs-block'
+import { ConsensusType, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { BlobEIP4844Transaction, Capability } from '@nomicfoundation/ethereumjs-tx'
+import { Address, KECCAK256_NULL, short, toBuffer } from '@nomicfoundation/ethereumjs-util'
 import { debug as createDebugLogger } from 'debug'
 
 import { Bloom } from './bloom'
@@ -21,7 +21,7 @@ import type {
   FeeMarketEIP1559Transaction,
   Transaction,
   TypedTransaction,
-} from '@ethereumjs/tx'
+} from '@nomicfoundation/ethereumjs-tx'
 
 const debug = createDebugLogger('vm:tx')
 const debugGas = createDebugLogger('vm:tx:gas')

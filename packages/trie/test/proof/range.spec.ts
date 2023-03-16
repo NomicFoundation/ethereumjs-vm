@@ -1,4 +1,4 @@
-import { setLengthLeft, toBuffer } from '@ethereumjs/util'
+import { setLengthLeft, toBuffer } from '@nomicfoundation/ethereumjs-util'
 import * as crypto from 'crypto'
 import * as tape from 'tape'
 

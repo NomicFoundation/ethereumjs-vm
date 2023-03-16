@@ -1,5 +1,5 @@
 {
-  "name": "@ethereumjs/vm",
+  "name": "@nomicfoundation/ethereumjs-vm",
   "version": "6.4.0",
   "description": "An Ethereum VM implementation",
   "keywords": [
@@ -56,17 +56,17 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/block": "^4.2.0",
-    "@ethereumjs/blockchain": "^6.2.0",
-    "@ethereumjs/common": "^3.1.0",
-    "@ethereumjs/evm": "^1.3.0",
-    "@ethereumjs/rlp": "^4.0.1",
-    "@ethereumjs/statemanager": "^1.0.3",
-    "@ethereumjs/trie": "^5.0.3",
-    "@ethereumjs/tx": "^4.1.0",
-    "@ethereumjs/util": "^8.0.4",
+    "@nomicfoundation/ethereumjs-block": "4.2.0",
+    "@nomicfoundation/ethereumjs-blockchain": "6.2.0",
+    "@nomicfoundation/ethereumjs-common": "3.1.0",
+    "@nomicfoundation/ethereumjs-evm": "1.3.0",
+    "@nomicfoundation/ethereumjs-rlp": "4.0.1",
+    "@nomicfoundation/ethereumjs-statemanager": "1.0.3",
+    "@nomicfoundation/ethereumjs-trie": "5.0.3",
+    "@nomicfoundation/ethereumjs-tx": "4.1.0",
+    "@nomicfoundation/ethereumjs-util": "8.0.4",
     "debug": "^4.3.3",
-    "ethereum-cryptography": "^1.1.2",
+    "ethereum-cryptography": "0.1.3",
     "mcl-wasm": "^0.7.1",
     "rustbn.js": "~0.2.0"
   },

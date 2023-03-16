@@ -9,9 +9,8 @@ import {
   publicToAddress,
   setLengthLeft,
   setLengthRight,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
-import { bytesToHex } from 'ethereum-cryptography/utils'
 
 import { ERROR } from '../exceptions'
 
@@ -30,7 +29,7 @@ import {
 } from './util'
 
 import type { RunState } from '../interpreter'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 const EIP3074MAGIC = Buffer.from('03', 'hex')
 
@@ -373,7 +372,7 @@ export const handlers: Map<number, OpHandler> = new Map([
       if (length !== BigInt(0)) {
         data = runState.memory.read(Number(offset), Number(length))
       }
-      const r = BigInt('0x' + bytesToHex(keccak256(data)))
+      const r = BigInt('0x' + keccak256(data).toString('hex'))
       runState.stack.push(r)
     },
   ],

@@ -1,4 +1,4 @@
-import { addHexPrefix, bigIntToHex, isHexPrefixed } from '@ethereumjs/util'
+import { addHexPrefix, bigIntToHex, isHexPrefixed } from '@nomicfoundation/ethereumjs-util'
 
 import type { GenesisState } from './genesisStates'
 

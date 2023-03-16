@@ -1,4 +1,4 @@
-import { MAX_INTEGER_BIGINT } from '@ethereumjs/util'
+import { MAX_INTEGER_BIGINT } from '@nomicfoundation/ethereumjs-util'
 
 import { ERROR, EvmError } from './exceptions'
 

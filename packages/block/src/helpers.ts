@@ -1,4 +1,4 @@
-import { TypeOutput, isHexString, toType } from '@ethereumjs/util'
+import { TypeOutput, isHexString, toType } from '@nomicfoundation/ethereumjs-util'
 
 import type { BlockHeader } from './header'
 import type { BlockHeaderBuffer, HeaderData } from './types'

@@ -1,5 +1,5 @@
-import { Common } from '@ethereumjs/common'
-import { toBuffer } from '@ethereumjs/util'
+import { Common } from '@nomicfoundation/ethereumjs-common'
+import { toBuffer } from '@nomicfoundation/ethereumjs-util'
 import * as minimist from 'minimist'
 import * as tape from 'tape'
 

@@ -1,6 +1,6 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { TWO_POW256 } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { TWO_POW256 } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { FeeMarketEIP1559Transaction } from '../src'

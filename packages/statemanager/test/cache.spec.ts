@@ -1,5 +1,5 @@
-import { Trie } from '@ethereumjs/trie'
-import { Account, Address } from '@ethereumjs/util'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import { Account, Address } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Cache } from '../src/cache'

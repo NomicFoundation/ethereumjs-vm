@@ -1,4 +1,4 @@
-import { RLP_EMPTY_STRING } from '@ethereumjs/util'
+import { RLP_EMPTY_STRING, arrToBufArr } from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 
 import { CheckpointDB, MapDB } from '../db'
@@ -31,12 +31,12 @@ interface Path {
 }
 
 /**
- * The basic trie interface, use with `import { Trie } from '@ethereumjs/trie'`.
+ * The basic trie interface, use with `import { Trie } from '@nomicfoundation/ethereumjs-trie'`.
  */
 export class Trie {
   private readonly _opts: TrieOptsWithDefaults = {
     useKeyHashing: false,
-    useKeyHashingFunction: keccak256,
+    useKeyHashingFunction: (msg: Uint8Array) => keccak256(arrToBufArr(msg)),
     useRootPersistence: false,
     useNodePruning: false,
   }

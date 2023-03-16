@@ -3,7 +3,12 @@ import type { InterpreterStep } from './interpreter'
 import type { Message } from './message'
 import type { OpHandler, OpcodeList } from './opcodes'
 import type { AsyncDynamicGasHandler, SyncDynamicGasHandler } from './opcodes/gas'
-import type { Account, Address, AsyncEventEmitter, PrefixedHexString } from '@ethereumjs/util'
+import type {
+  Account,
+  Address,
+  AsyncEventEmitter,
+  PrefixedHexString,
+} from '@nomicfoundation/ethereumjs-util'
 
 /**
  * API of the EVM
@@ -24,7 +29,7 @@ export interface EVMInterface {
  * This can be used to connect the EVM to different (chain) environments.
  * An implementation for an EEI to connect to an Ethereum execution chain
  * environment (`mainnet`, `sepolia`,...) can be found in the
- * `@ethereumjs/vm` package.
+ * `@nomicfoundation/ethereumjs-vm` package.
  */
 export interface EEIInterface extends EVMStateAccess {
   getBlockHash(num: bigint): Promise<bigint>
@@ -35,10 +40,10 @@ export interface EEIInterface extends EVMStateAccess {
 
 /**
  * API for EVM state access, this extends the base interface from
- * the `@ethereumjs/statemanager` package and is part of the broader
+ * the `@nomicfoundation/ethereumjs-statemanager` package and is part of the broader
  * EEI (see EEI interface).
  *
- * An implementation of this can be found in the `@ethereumjs/vm` package.
+ * An implementation of this can be found in the `@nomicfoundation/ethereumjs-vm` package.
  */
 export interface EVMStateAccess extends StateAccess {
   addWarmedAddress(address: Buffer): void

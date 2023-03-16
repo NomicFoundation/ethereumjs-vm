@@ -1,5 +1,5 @@
-import { ConsensusAlgorithm } from '@ethereumjs/common'
-import { MAX_UINT64, bigIntToHex, bufferToBigInt, intToHex } from '@ethereumjs/util'
+import { ConsensusAlgorithm } from '@nomicfoundation/ethereumjs-common'
+import { MAX_UINT64, bigIntToHex, bufferToBigInt, intToHex } from '@nomicfoundation/ethereumjs-util'
 import { debug as createDebugLogger } from 'debug'
 
 import { EOF } from './eof'
@@ -12,8 +12,8 @@ import { Stack } from './stack'
 import type { EVM, EVMResult } from './evm'
 import type { AsyncOpHandler, OpHandler, Opcode } from './opcodes'
 import type { Block, EEIInterface, Log } from './types'
-import type { Common } from '@ethereumjs/common'
-import type { Account, Address } from '@ethereumjs/util'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type { Account, Address } from '@nomicfoundation/ethereumjs-util'
 
 const debugGas = createDebugLogger('evm:eei:gas')
 
@@ -874,7 +874,7 @@ export class Interpreter {
     this._env.contract.nonce += BigInt(1)
     await this._eei.putAccount(this._env.address, this._env.contract)
 
-    if (this._common.isActivatedEIP(3860)) {
+    if (this._common.isActivatedEIP(3860) && !this._evm._allowUnlimitedContractSize) {
       if (data.length > Number(this._common.param('vm', 'maxInitCodeSize'))) {
         return BigInt(0)
       }

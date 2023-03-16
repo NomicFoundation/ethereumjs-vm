@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   MAX_INTEGER,
   arrToBufArr,
@@ -10,7 +10,7 @@ import {
   toBuffer,
   unpadBuffer,
   validateNoLeadingZeroes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 
 import { BaseTransaction } from './baseTransaction'
@@ -18,7 +18,7 @@ import { Capability } from './types'
 import { checkMaxInitCodeSize } from './util'
 
 import type { JsonTx, TxData, TxOptions, TxValuesArray } from './types'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 const TRANSACTION_TYPE = 0
 
@@ -134,7 +134,7 @@ export class Transaction extends BaseTransaction<Transaction> {
       }
     }
 
-    if (this.common.isActivatedEIP(3860)) {
+    if (this.common.isActivatedEIP(3860) && this.txOptions.disableMaxInitCodeSizeCheck !== true) {
       checkMaxInitCodeSize(this.common, this.data.length)
     }
 
@@ -211,8 +211,8 @@ export class Transaction extends BaseTransaction<Transaction> {
    * and you might need to do yourself with:
    *
    * ```javascript
-   * import { bufArrToArr } from '@ethereumjs/util'
-   * import { RLP } from '@ethereumjs/rlp'
+   * import { bufArrToArr } from '@nomicfoundation/ethereumjs-util'
+   * import { RLP } from '@nomicfoundation/ethereumjs-rlp'
    * const message = tx.getMessageToSign(false)
    * const serializedMessage = Buffer.from(RLP.encode(bufArrToArr(message))) // use this for the HW wallet input
    * ```
@@ -224,7 +224,7 @@ export class Transaction extends BaseTransaction<Transaction> {
   getMessageToSign(hashMessage = true) {
     const message = this._getMessageToSign()
     if (hashMessage) {
-      return Buffer.from(keccak256(RLP.encode(bufArrToArr(message))))
+      return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(message)))))
     } else {
       return message
     }
@@ -269,12 +269,12 @@ export class Transaction extends BaseTransaction<Transaction> {
 
     if (Object.isFrozen(this)) {
       if (!this.cache.hash) {
-        this.cache.hash = Buffer.from(keccak256(RLP.encode(bufArrToArr(this.raw()))))
+        this.cache.hash = Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(this.raw())))))
       }
       return this.cache.hash
     }
 
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr(this.raw()))))
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(this.raw())))))
   }
 
   /**
@@ -286,7 +286,7 @@ export class Transaction extends BaseTransaction<Transaction> {
       throw new Error(msg)
     }
     const message = this._getMessageToSign()
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr(message))))
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(message)))))
   }
 
   /**

@@ -1,10 +1,10 @@
-import { ConsensusAlgorithm } from '@ethereumjs/common'
-import { Ethash } from '@ethereumjs/ethash'
+import { ConsensusAlgorithm } from '@nomicfoundation/ethereumjs-common'
+import { Ethash } from '@nomicfoundation/ethereumjs-ethash'
 
 import type { Blockchain } from '..'
 import type { Consensus, ConsensusOptions } from './interface'
-import type { Block, BlockHeader } from '@ethereumjs/block'
-import type { EthashCacheDB } from '@ethereumjs/ethash'
+import type { Block, BlockHeader } from '@nomicfoundation/ethereumjs-block'
+import type { EthashCacheDB } from '@nomicfoundation/ethereumjs-ethash'
 
 /**
  * This class encapsulates Ethash-related consensus functionality when used with the Blockchain class.

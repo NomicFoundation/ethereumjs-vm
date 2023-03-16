@@ -1,5 +1,5 @@
-import { Trie } from '@ethereumjs/trie'
-import { Address, toBuffer, zeros } from '@ethereumjs/util'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import { Address, toBuffer, zeros } from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 import * as tape from 'tape'
 

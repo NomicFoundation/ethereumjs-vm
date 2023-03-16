@@ -1,17 +1,22 @@
-import { Block } from '@ethereumjs/block'
-import { Blockchain } from '@ethereumjs/blockchain'
-import { ConsensusAlgorithm } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { Trie } from '@ethereumjs/trie'
-import { TransactionFactory } from '@ethereumjs/tx'
-import { bufferToBigInt, isHexPrefixed, stripHexPrefix, toBuffer } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { ConsensusAlgorithm } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import { TransactionFactory } from '@nomicfoundation/ethereumjs-tx'
+import {
+  bufferToBigInt,
+  isHexPrefixed,
+  stripHexPrefix,
+  toBuffer,
+} from '@nomicfoundation/ethereumjs-util'
 import { Level } from 'level'
 import { MemoryLevel } from 'memory-level'
 
 import { setupPreConditions, verifyPostConditions } from '../../util'
 
-import type { EthashConsensus } from '@ethereumjs/blockchain'
-import type { Common } from '@ethereumjs/common'
+import type { EthashConsensus } from '@nomicfoundation/ethereumjs-blockchain'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 import type * as tape from 'tape'
 
 function formatBlockHeader(data: any) {

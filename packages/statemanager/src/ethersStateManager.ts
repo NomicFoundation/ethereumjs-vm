@@ -1,4 +1,4 @@
-import { Trie } from '@ethereumjs/trie'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
 import {
   Account,
   bigIntToHex,
@@ -6,7 +6,7 @@ import {
   bufferToHex,
   setLengthLeft,
   toBuffer,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { debug } from 'debug'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 import { ethers } from 'ethers'
@@ -18,7 +18,7 @@ import { BaseStateManager } from '.'
 import type { Proof, StateManager } from '.'
 import type { getCb, putCb } from './cache'
 import type { StorageDump } from './interface'
-import type { Address } from '@ethereumjs/util'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 
 const log = debug('statemanager')
 

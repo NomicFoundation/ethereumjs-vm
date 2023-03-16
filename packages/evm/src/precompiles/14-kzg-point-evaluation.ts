@@ -1,5 +1,10 @@
-import { computeVersionedHash, kzg } from '@ethereumjs/tx'
-import { bigIntToBuffer, bufferToBigInt, bufferToHex, setLengthLeft } from '@ethereumjs/util'
+import { computeVersionedHash, kzg } from '@nomicfoundation/ethereumjs-tx'
+import {
+  bigIntToBuffer,
+  bufferToBigInt,
+  bufferToHex,
+  setLengthLeft,
+} from '@nomicfoundation/ethereumjs-util'
 
 import { EvmErrorResult } from '../evm'
 import { ERROR, EvmError } from '../exceptions'

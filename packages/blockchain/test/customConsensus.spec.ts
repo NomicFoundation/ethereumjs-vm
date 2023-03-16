@@ -1,11 +1,11 @@
-import { Block } from '@ethereumjs/block'
-import { Common, Hardfork } from '@ethereumjs/common'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import * as tape from 'tape'
 
 import { Blockchain, EthashConsensus } from '../src'
 
 import type { Consensus } from '../src'
-import type { BlockHeader } from '@ethereumjs/block'
+import type { BlockHeader } from '@nomicfoundation/ethereumjs-block'
 
 class fibonacciConsensus implements Consensus {
   algorithm: string

@@ -1,6 +1,6 @@
 import type { RunState } from '../interpreter'
-import type { Common } from '@ethereumjs/common'
-import type { Address } from '@ethereumjs/util'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * Adds address to accessedAddresses set if not already included.

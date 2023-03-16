@@ -1,5 +1,5 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Address, bigIntToBuffer, setLengthLeft } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Address, bigIntToBuffer, setLengthLeft } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { VM } from '../../../src/vm'

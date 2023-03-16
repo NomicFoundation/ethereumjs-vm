@@ -1,4 +1,4 @@
-import { Common } from '@ethereumjs/common'
+import { Common } from '@nomicfoundation/ethereumjs-common'
 import * as tape from 'tape'
 
 import { Blockchain } from '../src/blockchain'

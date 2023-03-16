@@ -1,14 +1,14 @@
-import { Blockchain } from '@ethereumjs/blockchain'
-import { TransactionFactory } from '@ethereumjs/tx'
-import { Account } from '@ethereumjs/util'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { TransactionFactory } from '@nomicfoundation/ethereumjs-tx'
+import { Account } from '@nomicfoundation/ethereumjs-util'
 import { MemoryLevel } from 'memory-level'
 
 import { VM } from '../../src/vm'
 
 import type { VMOpts } from '../../src/types'
-import type { Block } from '@ethereumjs/block'
-import type { Common } from '@ethereumjs/common'
-import type { Address } from '@ethereumjs/util'
+import type { Block } from '@nomicfoundation/ethereumjs-block'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 
 export function createAccount(nonce = BigInt(0), balance = BigInt(0xfff384)) {
   return new Account(nonce, balance)

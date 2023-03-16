@@ -1,4 +1,4 @@
-import { TypeOutput, intToBuffer, toType } from '@ethereumjs/util'
+import { TypeOutput, intToBuffer, toType } from '@nomicfoundation/ethereumjs-util'
 import { buf as crc32Buffer } from 'crc-32'
 import { EventEmitter } from 'events'
 
@@ -27,7 +27,7 @@ import type {
   GethConfigOpts,
   HardforkConfig,
 } from './types'
-import type { BigIntLike } from '@ethereumjs/util'
+import type { BigIntLike } from '@nomicfoundation/ethereumjs-util'
 
 type HardforkSpecKeys = keyof typeof HARDFORK_SPECS
 type HardforkSpecValues = typeof HARDFORK_SPECS[HardforkSpecKeys]
@@ -68,7 +68,7 @@ export class Common extends EventEmitter {
    *
    * Note that these supported custom chains only provide some base parameters (usually the chain and
    * network ID and a name) and can only be used for selected use cases (e.g. sending a tx with
-   * the `@ethereumjs/tx` library to a Layer-2 chain).
+   * the `@nomicfoundation/ethereumjs-tx` library to a Layer-2 chain).
    *
    * @param chainParamsOrName Custom parameter dict (`name` will default to `custom-chain`) or string with name of a supported custom chain
    * @param opts Custom chain options to set the {@link CustomCommonOpts.baseChain}, selected {@link CustomCommonOpts.hardfork} and others

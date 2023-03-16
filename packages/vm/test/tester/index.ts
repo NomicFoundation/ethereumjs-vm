@@ -16,7 +16,7 @@ import { runBlockchainTest } from './runners/BlockchainTestsRunner'
 import { runStateTest } from './runners/GeneralStateTestsRunner'
 import { getTestFromSource, getTestsFromArgs } from './testLoader'
 
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 /**
  * Test runner

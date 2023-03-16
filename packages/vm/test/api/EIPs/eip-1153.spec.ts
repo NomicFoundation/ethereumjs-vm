@@ -1,6 +1,6 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Transaction } from '@ethereumjs/tx'
-import { Account, Address, bufferToInt, privateToAddress } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Transaction } from '@nomicfoundation/ethereumjs-tx'
+import { Account, Address, bufferToInt, privateToAddress } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { VM } from '../../../src/vm'

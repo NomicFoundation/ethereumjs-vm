@@ -1,5 +1,7 @@
-import { blobToKzgCommitment } from 'c-kzg'
+import { arrToBufArr } from '@nomicfoundation/ethereumjs-util'
 import { sha256 } from 'ethereum-cryptography/sha256'
+
+const { blobToKzgCommitment } = require('c-kzg')
 
 /**
  * These utilities for constructing blobs are borrowed from https://github.com/Inphi/eip4844-interop.git
@@ -73,7 +75,7 @@ export const blobsToCommitments = (blobs: Buffer[]) => {
 export const computeVersionedHash = (commitment: Uint8Array, blobCommitmentVersion: number) => {
   const computedVersionedHash = new Uint8Array(32)
   computedVersionedHash.set([blobCommitmentVersion], 0)
-  computedVersionedHash.set(sha256(commitment).slice(1), 1)
+  computedVersionedHash.set(sha256(arrToBufArr(commitment)).slice(1), 1)
   return computedVersionedHash
 }
 

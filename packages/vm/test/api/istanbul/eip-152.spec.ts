@@ -1,6 +1,6 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { ERROR } from '@ethereumjs/evm/dist/exceptions'
-import { F, precompile09 } from '@ethereumjs/evm/dist/precompiles/09-blake2f'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { ERROR } from '@nomicfoundation/ethereumjs-evm/dist/exceptions'
+import { F, precompile09 } from '@nomicfoundation/ethereumjs-evm/dist/precompiles/09-blake2f'
 import * as tape from 'tape'
 
 import { VM } from '../../../src/vm'

@@ -1,6 +1,6 @@
-import { Chain, Common } from '@ethereumjs/common'
-import { DefaultStateManager } from '@ethereumjs/statemanager'
-import { Account } from '@ethereumjs/util'
+import { Chain, Common } from '@nomicfoundation/ethereumjs-common'
+import { DefaultStateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import { Account } from '@nomicfoundation/ethereumjs-util'
 import path from 'path'
 
 import { Blockchain } from '../../blockchain/src'

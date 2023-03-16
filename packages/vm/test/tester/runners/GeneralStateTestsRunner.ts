@@ -1,14 +1,14 @@
-import { Block } from '@ethereumjs/block'
-import { Blockchain } from '@ethereumjs/blockchain'
-import { DefaultStateManager } from '@ethereumjs/statemanager'
-import { Trie } from '@ethereumjs/trie'
-import { toBuffer } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { DefaultStateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import { toBuffer } from '@nomicfoundation/ethereumjs-util'
 
 import { EVM } from '../../../../evm/src'
 import { EEI } from '../../../src'
 import { makeBlockFromEnv, makeTx, setupPreConditions } from '../../util'
 
-import type { InterpreterStep } from '@ethereumjs/evm/dist//interpreter'
+import type { InterpreterStep } from '@nomicfoundation/ethereumjs-evm/dist//interpreter'
 import type * as tape from 'tape'
 
 function parseTestCases(

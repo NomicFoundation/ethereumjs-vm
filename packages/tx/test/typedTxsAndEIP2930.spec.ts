@@ -1,4 +1,4 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import {
   Address,
   MAX_INTEGER,
@@ -7,7 +7,7 @@ import {
   bufferToBigInt,
   bufferToHex,
   privateToAddress,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { AccessListEIP2930Transaction, FeeMarketEIP1559Transaction } from '../src'

@@ -1,4 +1,4 @@
-import { bigIntToBuffer } from '@ethereumjs/util'
+import { bigIntToBuffer } from '@nomicfoundation/ethereumjs-util'
 
 // Geth compatible DB keys
 

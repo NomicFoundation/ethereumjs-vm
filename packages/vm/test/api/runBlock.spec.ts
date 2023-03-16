@@ -1,13 +1,13 @@
-import { Block } from '@ethereumjs/block'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   AccessListEIP2930Transaction,
   Capability,
   FeeMarketEIP1559Transaction,
   Transaction,
-} from '@ethereumjs/tx'
-import { Account, Address, KECCAK256_RLP, toBuffer } from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-tx'
+import { Account, Address, KECCAK256_RLP, toBuffer } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { VM } from '../../src/vm'
@@ -22,7 +22,7 @@ import type {
   PreByzantiumTxReceipt,
   RunBlockOpts,
 } from '../../src/types'
-import type { TypedTransaction } from '@ethereumjs/tx'
+import type { TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
 
 const testData = require('./testdata/blockchain.json')
 const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.Berlin })

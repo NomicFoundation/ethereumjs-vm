@@ -1,5 +1,5 @@
-import { BlockHeader } from '@ethereumjs/block'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { BlockHeader } from '@nomicfoundation/ethereumjs-block'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import * as tape from 'tape'
 
 import { Ethash } from '../src'

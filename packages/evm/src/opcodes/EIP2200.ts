@@ -4,7 +4,7 @@ import { adjustSstoreGasEIP2929 } from './EIP2929'
 import { trap } from './util'
 
 import type { RunState } from '../interpreter'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 /**
  * Adjusts gas usage and refunds of SStore ops per EIP-2200 (Istanbul)

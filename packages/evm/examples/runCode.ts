@@ -1,8 +1,8 @@
-import { Blockchain } from '@ethereumjs/blockchain'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { EVM } from '@ethereumjs/evm'
-import { DefaultStateManager } from '@ethereumjs/statemanager'
-import { EEI } from '@ethereumjs/vm'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { EVM } from '@nomicfoundation/ethereumjs-evm'
+import { DefaultStateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import { EEI } from '@nomicfoundation/ethereumjs-vm'
 
 const main = async () => {
   const common = new Common({ chain: Chain.Mainnet, hardfork: Hardfork.London })

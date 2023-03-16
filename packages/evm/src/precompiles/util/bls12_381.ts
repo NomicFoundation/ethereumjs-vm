@@ -1,4 +1,4 @@
-import { bufferToBigInt, padToEven } from '@ethereumjs/util'
+import { bufferToBigInt, padToEven } from '@nomicfoundation/ethereumjs-util'
 
 import { ERROR, EvmError } from '../../exceptions'
 

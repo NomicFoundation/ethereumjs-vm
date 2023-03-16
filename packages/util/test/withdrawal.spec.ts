@@ -1,4 +1,4 @@
-import { decode, encode } from '@ethereumjs/rlp'
+import { decode, encode } from '@nomicfoundation/ethereumjs-rlp'
 import * as tape from 'tape'
 
 import { Withdrawal, bigIntToHex, intToHex } from '../src'

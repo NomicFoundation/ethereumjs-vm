@@ -1,6 +1,6 @@
-import { Common, Hardfork } from '@ethereumjs/common'
-import { computeVersionedHash, initKZG } from '@ethereumjs/tx'
-import { bigIntToBuffer, bufferToBigInt, unpadBuffer } from '@ethereumjs/util'
+import { Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { computeVersionedHash, initKZG } from '@nomicfoundation/ethereumjs-tx'
+import { bigIntToBuffer, bufferToBigInt, unpadBuffer } from '@nomicfoundation/ethereumjs-util'
 import * as kzg from 'c-kzg'
 import * as tape from 'tape'
 

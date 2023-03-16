@@ -6,7 +6,7 @@ import {
   toBuffer,
   unpadBuffer,
   zeros,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 import { bytesToHex } from 'ethereum-cryptography/utils'
 import * as tape from 'tape'
@@ -302,7 +302,7 @@ tape('StateManager', (t) => {
 
       NOTE: Currently, the only problem which this code prefix fixes, is putting 0x80 as contract code
       -> This hashes to the empty trie node hash (0x80 = RLP([])), so keccak256(0x80) = empty trie node hash
-      -> Therefore, each empty state trie now points to 0x80, which is not a valid trie node, which crashes @ethereumjs/trie
+      -> Therefore, each empty state trie now points to 0x80, which is not a valid trie node, which crashes @nomicfoundation/ethereumjs-trie
     */
 
     // Setup

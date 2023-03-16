@@ -1,6 +1,6 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { toBuffer, zeros } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { toBuffer, zeros } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 // explicitly import util, needed for karma-typescript bundling
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, simple-import-sort/imports
@@ -16,7 +16,7 @@ import * as testDataPreLondon from './testdata/testdata_pre-london.json'
 import * as testnetMerge from './testdata/testnetMerge.json'
 
 import type { BlockBuffer } from '../src'
-import type { NestedUint8Array } from '@ethereumjs/util'
+import type { NestedUint8Array } from '@nomicfoundation/ethereumjs-util'
 
 tape('[Block]: block functions', function (t) {
   t.test('should test block initialization', function (st) {

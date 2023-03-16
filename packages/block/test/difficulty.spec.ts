@@ -1,5 +1,5 @@
-import { Chain, Common } from '@ethereumjs/common'
-import { bufferToInt } from '@ethereumjs/util'
+import { Chain, Common } from '@nomicfoundation/ethereumjs-common'
+import { bufferToInt } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Block } from '../src'

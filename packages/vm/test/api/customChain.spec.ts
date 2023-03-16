@@ -1,8 +1,8 @@
-import { Block } from '@ethereumjs/block'
-import { Blockchain } from '@ethereumjs/blockchain'
-import { Common, Hardfork } from '@ethereumjs/common'
-import { TransactionFactory } from '@ethereumjs/tx'
-import { Address } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { TransactionFactory } from '@nomicfoundation/ethereumjs-tx'
+import { Address } from '@nomicfoundation/ethereumjs-util'
 import { Interface } from '@ethersproject/abi'
 import * as tape from 'tape'
 
@@ -11,7 +11,7 @@ import { VM } from '../../src/vm'
 import * as testChain from './testdata/testnet.json'
 import * as testnetMerge from './testdata/testnetMerge.json'
 
-import type { AccountState } from '@ethereumjs/blockchain/dist/genesisStates'
+import type { AccountState } from '@nomicfoundation/ethereumjs-blockchain/dist/genesisStates'
 
 const storage: Array<[string, string]> = [
   [

@@ -1,5 +1,11 @@
-import { Chain, Common, ConsensusAlgorithm, ConsensusType, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
+import {
+  Chain,
+  Common,
+  ConsensusAlgorithm,
+  ConsensusType,
+  Hardfork,
+} from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   Address,
   KECCAK256_RLP,
@@ -16,14 +22,14 @@ import {
   ecsign,
   toType,
   zeros,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak'
 
 import { CLIQUE_EXTRA_SEAL, CLIQUE_EXTRA_VANITY } from './clique'
 import { valuesArrayToHeaderData } from './helpers'
 
 import type { BlockHeaderBuffer, BlockOptions, HeaderData, JsonHeader } from './types'
-import type { CliqueConfig } from '@ethereumjs/common'
+import type { CliqueConfig } from '@nomicfoundation/ethereumjs-common'
 
 interface HeaderCache {
   hash: Buffer | undefined
@@ -561,12 +567,12 @@ export class BlockHeader {
   hash(): Buffer {
     if (Object.isFrozen(this)) {
       if (!this.cache.hash) {
-        this.cache.hash = Buffer.from(keccak256(RLP.encode(bufArrToArr(this.raw()))))
+        this.cache.hash = Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(this.raw())))))
       }
       return this.cache.hash
     }
 
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr(this.raw()))))
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(this.raw())))))
   }
 
   /**
@@ -667,7 +673,7 @@ export class BlockHeader {
     this._requireClique('cliqueSigHash')
     const raw = this.raw()
     raw[12] = this.extraData.slice(0, this.extraData.length - CLIQUE_EXTRA_SEAL)
-    return Buffer.from(keccak256(RLP.encode(bufArrToArr(raw))))
+    return Buffer.from(keccak256(arrToBufArr(RLP.encode(bufArrToArr(raw)))))
   }
 
   /**

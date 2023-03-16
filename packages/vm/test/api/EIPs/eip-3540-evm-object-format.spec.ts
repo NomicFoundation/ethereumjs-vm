@@ -1,7 +1,7 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { EOF } from '@ethereumjs/evm/dist/eof'
-import { FeeMarketEIP1559Transaction } from '@ethereumjs/tx'
-import { Address, privateToAddress } from '@ethereumjs/util'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { EOF } from '@nomicfoundation/ethereumjs-evm/dist/eof'
+import { FeeMarketEIP1559Transaction } from '@nomicfoundation/ethereumjs-tx'
+import { Address, privateToAddress } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { VM } from '../../../src/vm'

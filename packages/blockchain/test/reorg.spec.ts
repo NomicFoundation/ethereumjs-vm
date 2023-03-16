@@ -1,6 +1,6 @@
-import { Block } from '@ethereumjs/block'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Address } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Address } from '@nomicfoundation/ethereumjs-util'
 import * as tape from 'tape'
 
 import { Blockchain } from '../src'

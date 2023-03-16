@@ -1,4 +1,4 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
 import {
   Address,
   AsyncEventEmitter,
@@ -9,7 +9,7 @@ import {
   generateAddress2,
   short,
   zeros,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { debug as createDebugLogger } from 'debug'
 import { promisify } from 'util'
 
@@ -38,7 +38,7 @@ import type {
   /*ExternalInterfaceFactory,*/
   Log,
 } from './types'
-import type { Account } from '@ethereumjs/util'
+import type { Account } from '@nomicfoundation/ethereumjs-util'
 
 const debug = createDebugLogger('evm')
 const debugGas = createDebugLogger('evm:gas')
@@ -416,7 +416,7 @@ export class EVM implements EVMInterface {
     // Reduce tx value from sender
     await this._reduceSenderBalance(account, message)
 
-    if (this._common.isActivatedEIP(3860)) {
+    if (this._common.isActivatedEIP(3860) && !this._allowUnlimitedContractSize) {
       if (message.data.length > Number(this._common.param('vm', 'maxInitCodeSize'))) {
         return {
           createdAddress: message.to,

@@ -1,4 +1,4 @@
-import { TypeOutput, setLengthLeft, toBuffer, toType } from '@ethereumjs/util'
+import { TypeOutput, setLengthLeft, toBuffer, toType } from '@nomicfoundation/ethereumjs-util'
 
 import type { TxData } from './types'
 

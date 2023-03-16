@@ -3,13 +3,11 @@ import { JsonRpcProvider } from '@ethersproject/providers'
 
 import { FeeMarketEIP1559Transaction } from './eip1559Transaction'
 import { AccessListEIP2930Transaction } from './eip2930Transaction'
-import { BlobEIP4844Transaction } from './eip4844Transaction'
 import { normalizeTxParams } from './fromRpc'
 import { Transaction } from './legacyTransaction'
 
 import type {
   AccessListEIP2930TxData,
-  BlobEIP4844TxData,
   FeeMarketEIP1559TxData,
   TxData,
   TxOptions,
@@ -27,7 +25,7 @@ export class TransactionFactory {
    * @param txOptions - Options to pass on to the constructor of the transaction
    */
   public static fromTxData(
-    txData: TxData | AccessListEIP2930TxData | FeeMarketEIP1559TxData | BlobEIP4844TxData,
+    txData: TxData | AccessListEIP2930TxData | FeeMarketEIP1559TxData,
     txOptions: TxOptions = {}
   ): TypedTransaction {
     if (!('type' in txData) || txData.type === undefined) {
@@ -41,8 +39,6 @@ export class TransactionFactory {
         return AccessListEIP2930Transaction.fromTxData(<AccessListEIP2930TxData>txData, txOptions)
       } else if (txType === 2) {
         return FeeMarketEIP1559Transaction.fromTxData(<FeeMarketEIP1559TxData>txData, txOptions)
-      } else if (txType === 5) {
-        return BlobEIP4844Transaction.fromTxData(<BlobEIP4844TxData>txData, txOptions)
       } else {
         throw new Error(`Tx instantiation with type ${txType} not supported`)
       }
@@ -63,8 +59,6 @@ export class TransactionFactory {
           return AccessListEIP2930Transaction.fromSerializedTx(data, txOptions)
         case 2:
           return FeeMarketEIP1559Transaction.fromSerializedTx(data, txOptions)
-        case 5:
-          return BlobEIP4844Transaction.fromSerializedTx(data, txOptions)
         default:
           throw new Error(`TypedTransaction with ID ${data[0]} unknown`)
       }

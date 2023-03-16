@@ -1,11 +1,7 @@
 import { ConsensusType } from '@nomicfoundation/ethereumjs-common'
 import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import { Trie } from '@nomicfoundation/ethereumjs-trie'
-import {
-  BlobEIP4844Transaction,
-  Capability,
-  TransactionFactory,
-} from '@nomicfoundation/ethereumjs-tx'
+import { Capability, TransactionFactory } from '@nomicfoundation/ethereumjs-tx'
 import {
   KECCAK256_RLP,
   Withdrawal,
@@ -400,16 +396,7 @@ export class Block {
           }
         }
       }
-      if (this._common.isActivatedEIP(4844) === true) {
-        if (tx instanceof BlobEIP4844Transaction) {
-          blockDataGas += BigInt(tx.numBlobs()) * dataGasPerBlob
-          if (blockDataGas > dataGasLimit) {
-            errs.push(
-              `tx causes total data gas of ${blockDataGas} to exceed maximum data gas per block of ${dataGasLimit}`
-            )
-          }
-        }
-      }
+
       if (errs.length > 0) {
         errors.push(`errors at tx ${i}: ${errs.join(', ')}`)
       }
@@ -462,18 +449,7 @@ export class Block {
    * @param parentHeader header of parent block
    */
   validateBlobTransactions(parentHeader: BlockHeader) {
-    for (const tx of this.transactions) {
-      if (tx instanceof BlobEIP4844Transaction) {
-        const dataGasPrice = getDataGasPrice(parentHeader)
-        if (tx.maxFeePerDataGas < dataGasPrice) {
-          throw new Error(
-            `blob transaction maxFeePerDataGas ${
-              tx.maxFeePerDataGas
-            } < than block data gas price ${dataGasPrice} - ${this.errorStr()}`
-          )
-        }
-      }
-    }
+    // removed in the fork because we don't support EIP4844
   }
 
   /**

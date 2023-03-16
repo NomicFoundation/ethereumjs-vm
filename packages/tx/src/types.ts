@@ -21,7 +21,6 @@ import {
 
 import type { FeeMarketEIP1559Transaction } from './eip1559Transaction'
 import type { AccessListEIP2930Transaction } from './eip2930Transaction'
-import type { BlobEIP4844Transaction } from './eip4844Transaction'
 import type { Transaction } from './legacyTransaction'
 import type { Common } from '@nomicfoundation/ethereumjs-common'
 import type {
@@ -146,7 +145,6 @@ export type TypedTransaction =
   | Transaction
   | AccessListEIP2930Transaction
   | FeeMarketEIP1559Transaction
-  | BlobEIP4844Transaction
 
 /**
  * Legacy {@link Transaction} Data
@@ -236,32 +234,6 @@ export interface FeeMarketEIP1559TxData extends AccessListEIP2930TxData {
    * The maximum total fee
    */
   maxFeePerGas?: BigIntLike
-}
-
-/**
- * {@link BlobEIP4844Transaction} data.
- */
-export interface BlobEIP4844TxData extends FeeMarketEIP1559TxData {
-  /**
-   * The versioned hashes used to validate the blobs attached to a transaction
-   */
-  versionedHashes?: BufferLike[]
-  /**
-   * The maximum fee per data gas paid for the transaction
-   */
-  maxFeePerDataGas?: BigIntLike
-  /**
-   * The blobs associated with a transaction
-   */
-  blobs?: BufferLike[]
-  /**
-   * The KZG commitments corresponding to the versioned hashes for each blob
-   */
-  kzgCommitments?: BufferLike[]
-  /**
-   * The aggregate KZG proof associated with the transaction
-   */
-  kzgProof?: BufferLike
 }
 
 /**

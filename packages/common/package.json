@@ -1,6 +1,6 @@
 {
   "name": "@nomicfoundation/ethereumjs-common",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "Resources common to all Ethereum implementations",
   "keywords": [
     "ethereum",
@@ -40,7 +40,6 @@
     "lint": "../../config/cli/lint.sh",
     "lint:diff": "../../config/cli/lint-diff.sh",
     "lint:fix": "../../config/cli/lint-fix.sh",
-    "prepublishOnly": "../../config/cli/prepublish.sh",
     "tape": "tape -r ts-node/register",
     "test": "npm run test:node && npm run test:browser",
     "test:browser": "karma start karma.conf.js",
@@ -48,7 +47,7 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@nomicfoundation/ethereumjs-util": "8.0.5",
+    "@nomicfoundation/ethereumjs-util": "9.0.0",
     "crc-32": "^1.2.0"
   }
 }

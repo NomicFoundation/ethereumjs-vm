@@ -1,6 +1,6 @@
 {
   "name": "@nomicfoundation/ethereumjs-blockchain",
-  "version": "6.2.1",
+  "version": "7.0.0",
   "description": "A module to store and interact with blocks",
   "keywords": [
     "ethereum",
@@ -30,7 +30,6 @@
     "lint": "../../config/cli/lint.sh",
     "lint:diff": "../../config/cli/lint-diff.sh",
     "lint:fix": "../../config/cli/lint-fix.sh",
-    "prepublishOnly": "../../config/cli/prepublish.sh",
     "tape": "tape -r ts-node/register",
     "test": "npm run test:node && npm run test:browser",
     "test:browser": "karma start karma.conf.js",
@@ -38,13 +37,13 @@
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@nomicfoundation/ethereumjs-block": "4.2.1",
-    "@nomicfoundation/ethereumjs-common": "3.1.1",
-    "@nomicfoundation/ethereumjs-ethash": "2.0.4",
-    "@nomicfoundation/ethereumjs-rlp": "4.0.2",
-    "@nomicfoundation/ethereumjs-trie": "5.0.4",
-    "@nomicfoundation/ethereumjs-tx": "4.1.1",
-    "@nomicfoundation/ethereumjs-util": "8.0.5",
+    "@nomicfoundation/ethereumjs-block": "5.0.0",
+    "@nomicfoundation/ethereumjs-common": "4.0.0",
+    "@nomicfoundation/ethereumjs-ethash": "3.0.0",
+    "@nomicfoundation/ethereumjs-rlp": "5.0.0",
+    "@nomicfoundation/ethereumjs-trie": "6.0.0",
+    "@nomicfoundation/ethereumjs-tx": "5.0.0",
+    "@nomicfoundation/ethereumjs-util": "9.0.0",
     "abstract-level": "^1.0.3",
     "debug": "^4.3.3",
     "ethereum-cryptography": "0.1.3",

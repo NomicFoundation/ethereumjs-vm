@@ -31,6 +31,10 @@ export type PrefixedHexString = string
  */
 export type AddressLike = Address | Buffer | PrefixedHexString
 
+export interface TransformabletoBytes {
+  toBytes?(): Uint8Array
+}
+
 /*
  * A type that represents an object that has a `toArray()` method.
  */

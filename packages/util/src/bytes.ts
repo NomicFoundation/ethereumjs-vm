@@ -7,6 +7,7 @@ import type {
   PrefixedHexString,
   TransformableToArray,
   TransformableToBuffer,
+  TransformabletoBytes,
 } from './types'
 
 /**
@@ -29,6 +30,16 @@ export const intToHex = function (i: number) {
 export const intToBuffer = function (i: number) {
   const hex = intToHex(i)
   return Buffer.from(padToEven(hex.slice(2)), 'hex')
+}
+
+/**
+ * Converts a {@link bigint} to a {@link Uint8Array}
+ *  * @param {bigint} num the bigint to convert
+ * @returns {Uint8Array}
+ */
+export const bigIntToBytes = (num: bigint): Uint8Array => {
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
+  return toBytes('0x' + padToEven(num.toString(16)))
 }
 
 /**
@@ -236,6 +247,121 @@ export const bufferToInt = function (buf: Buffer): number {
   return res
 }
 
+export const hexToBytes = (hex: string): Uint8Array => {
+  if (typeof hex !== 'string') {
+    throw new Error(`hex argument type ${typeof hex} must be of type string`)
+  }
+
+  if (!hex.startsWith('0x')) {
+    throw new Error(`prefixed hex input should start with 0x, got ${hex.substring(0, 2)}`)
+  }
+
+  hex = hex.slice(2)
+
+  if (hex.length % 2 !== 0) {
+    hex = padToEven(hex)
+  }
+
+  const byteLen = hex.length / 2
+  const bytes = new Uint8Array(byteLen)
+  for (let i = 0; i < byteLen; i++) {
+    const byte = parseInt(hex.slice(i * 2, (i + 1) * 2), 16)
+    bytes[i] = byte
+  }
+  return bytes
+}
+
+/**
+ * Converts an {@link number} to a {@link Uint8Array}
+ * @param {Number} i
+ * @return {Uint8Array}
+ */
+export const intToBytes = (i: number): Uint8Array => {
+  const hex = intToHex(i)
+  return hexToBytes(hex)
+}
+
+const _unprefixedHexToBytes = (data: string) => {
+  const hex = data.startsWith('0x') ? data.substring(2) : data
+
+  if (typeof hex !== 'string') throw new Error('hex string expected, got ' + typeof hex)
+  const len = hex.length
+  if (len % 2) throw new Error('padded hex string expected, got unpadded hex of length ' + len)
+  const array = new Uint8Array(len / 2)
+  for (let i = 0; i < array.length; i++) {
+    const j = i * 2
+    const hexByte = hex.slice(j, j + 2)
+    const byte = Number.parseInt(hexByte, 16)
+    if (Number.isNaN(byte) || byte < 0) throw new Error('Invalid byte sequence')
+    array[i] = byte
+  }
+  return array
+}
+
+export const unprefixedHexToBytes = (inp: string) => {
+  if (inp.slice(0, 2) === '0x') {
+    throw new Error('hex string is prefixed with 0x, should be unprefixed')
+  } else {
+    return _unprefixedHexToBytes(padToEven(inp))
+  }
+}
+
+export type ToBytesInputTypes =
+  | PrefixedHexString
+  | number
+  | bigint
+  | Uint8Array
+  | number[]
+  | TransformabletoBytes
+  | null
+  | undefined
+
+/**
+ * Attempts to turn a value into a `Uint8Array`.
+ * Inputs supported: `Buffer`, `Uint8Array`, `String` (hex-prefixed), `Number`, null/undefined, `BigInt` and other objects
+ * with a `toArray()` or `toBytes()` method.
+ * @param {ToBytesInputTypes} v the value
+ * @return {Uint8Array}
+ */
+export const toBytes = (v: ToBytesInputTypes): Uint8Array => {
+  if (v === null || v === undefined) {
+    return new Uint8Array()
+  }
+
+  if (Array.isArray(v) || v instanceof Uint8Array) {
+    return Uint8Array.from(v)
+  }
+
+  if (typeof v === 'string') {
+    if (!isHexString(v)) {
+      throw new Error(
+        `Cannot convert string to Uint8Array. toBytes only supports 0x-prefixed hex strings and this string was given: ${v}`
+      )
+    }
+    return hexToBytes(v)
+  }
+
+  if (typeof v === 'number') {
+    return intToBytes(v)
+  }
+
+  if (typeof v === 'bigint') {
+    if (v < BigInt(0)) {
+      throw new Error(`Cannot convert negative bigint to Uint8Array. Given: ${v}`)
+    }
+    let n = v.toString(16)
+    if (n.length % 2) n = '0' + n
+    return unprefixedHexToBytes(n)
+  }
+
+  if (v.toBytes !== undefined) {
+    // converts a `TransformableToBytes` object to a Uint8Array
+    return v.toBytes()
+  }
+
+  throw new Error('invalid type')
+}
+
 /**
  * Interprets a `Buffer` as a signed integer and returns a `BigInt`. Assumes 256-bit numbers.
  * @param num Signed integer value
@@ -389,4 +515,25 @@ export function bigIntToUnpaddedBuffer(value: bigint): Buffer {
 
 export function intToUnpaddedBuffer(value: number): Buffer {
   return unpadBuffer(intToBuffer(value))
+}
+
+/****************  Borrowed from @chainsafe/ssz */
+// Caching this info costs about ~1000 bytes and speeds up toHexString() by x6
+const hexByByte = Array.from({ length: 256 }, (v, i) => i.toString(16).padStart(2, '0'))
+
+export const bytesToHex = (bytes: Uint8Array): string => {
+  let hex = '0x'
+  if (bytes === undefined || bytes.length === 0) return hex
+  for (const byte of bytes) {
+    hex += hexByByte[byte]
+  }
+  return hex
+}
+
+export const bytesToBigInt = (bytes: Uint8Array): bigint => {
+  const hex = bytesToHex(bytes)
+  if (hex === '0x') {
+    return BigInt(0)
+  }
+  return BigInt(hex)
 }

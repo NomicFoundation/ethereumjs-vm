@@ -308,7 +308,7 @@ export class AccessListEIP2930Transaction extends BaseTransaction<AccessListEIP2
   /**
    * Returns the public key of the sender
    */
-  public getSenderPublicKey(): Buffer {
+  _getSenderPublicKey(): Buffer {
     if (!this.isSigned()) {
       const msg = this._errorMsg('Cannot call this method if transaction is not signed')
       throw new Error(msg)

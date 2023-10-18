@@ -338,7 +338,7 @@ export class FeeMarketEIP1559Transaction extends BaseTransaction<FeeMarketEIP155
   /**
    * Returns the public key of the sender
    */
-  public getSenderPublicKey(): Buffer {
+  _getSenderPublicKey(): Buffer {
     if (!this.isSigned()) {
       const msg = this._errorMsg('Cannot call this method if transaction is not signed')
       throw new Error(msg)

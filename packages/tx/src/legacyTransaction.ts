@@ -292,7 +292,7 @@ export class Transaction extends BaseTransaction<Transaction> {
   /**
    * Returns the public key of the sender
    */
-  getSenderPublicKey(): Buffer {
+  _getSenderPublicKey(): Buffer {
     const msgHash = this.getMessageToVerifySignature()
 
     const { v, r, s } = this

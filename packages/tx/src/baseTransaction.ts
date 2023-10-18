@@ -27,6 +27,8 @@ import type {
 import type { BigIntLike } from '@nomicfoundation/ethereumjs-util'
 
 interface TransactionCache {
+  senderAddress: Address | undefined
+  senderPublicKey: Buffer | undefined
   hash: Buffer | undefined
   dataFee?: {
     value: bigint
@@ -57,6 +59,8 @@ export abstract class BaseTransaction<TransactionObject> {
   public readonly common!: Common
 
   protected cache: TransactionCache = {
+    senderAddress: undefined,
+    senderPublicKey: undefined,
     hash: undefined,
     dataFee: undefined,
   }
@@ -291,13 +295,23 @@ export abstract class BaseTransaction<TransactionObject> {
    * Returns the sender's address
    */
   getSenderAddress(): Address {
-    return new Address(publicToAddress(this.getSenderPublicKey()))
+    if (this.cache.senderAddress === undefined) {
+      this.cache.senderAddress = new Address(publicToAddress(this.getSenderPublicKey()))
+    }
+    return this.cache.senderAddress
   }
+
+  abstract _getSenderPublicKey(): Buffer
 
   /**
    * Returns the public key of the sender
    */
-  abstract getSenderPublicKey(): Buffer
+  getSenderPublicKey(): Buffer {
+    if (this.cache.senderPublicKey === undefined) {
+      this.cache.senderPublicKey = this._getSenderPublicKey()
+    }
+    return this.cache.senderPublicKey
+  }
 
   /**
    * Signs a transaction.

@@ -1,7 +1,11 @@
-import { ConsensusType } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { Trie } from '@ethereumjs/trie'
-import { BlobEIP4844Transaction, Capability, TransactionFactory } from '@ethereumjs/tx'
+import { ConsensusType } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import {
+  BlobEIP4844Transaction,
+  Capability,
+  TransactionFactory,
+} from '@nomicfoundation/ethereumjs-tx'
 import {
   BIGINT_0,
   KECCAK256_RLP,
@@ -15,7 +19,7 @@ import {
   hexToBytes,
   intToHex,
   isHexPrefixed,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { executionPayloadFromBeaconPayload } from './from-beacon-payload.js'
@@ -33,14 +37,14 @@ import type {
   JsonRpcBlock,
   VerkleExecutionWitness,
 } from './types.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 import type {
   FeeMarketEIP1559Transaction,
   LegacyTransaction,
   TxOptions,
   TypedTransaction,
-} from '@ethereumjs/tx'
-import type { EthersProvider, WithdrawalBytes } from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-tx'
+import type { EthersProvider, WithdrawalBytes } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * An object that represents the block.

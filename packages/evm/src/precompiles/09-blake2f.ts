@@ -1,4 +1,4 @@
-import { bytesToHex, short } from '@ethereumjs/util'
+import { bytesToHex, short } from '@nomicfoundation/ethereumjs-util'
 
 import { OOGResult } from '../evm.js'
 import { ERROR, EvmError } from '../exceptions.js'

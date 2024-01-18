@@ -6,7 +6,7 @@ import {
   kzg,
   setLengthLeft,
   short,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { EvmErrorResult, OOGResult } from '../evm.js'
 import { ERROR, EvmError } from '../exceptions.js'

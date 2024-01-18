@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   BIGINT_2,
   BIGINT_8,
@@ -9,7 +9,7 @@ import {
   toBytes,
   unpadBytes,
   validateNoLeadingZeroes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { BaseTransaction } from './baseTransaction.js'
@@ -22,7 +22,7 @@ import type {
   JsonTx,
   TxOptions,
 } from './types.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 type TxData = AllTypesTxData[TransactionType.Legacy]
 type TxValuesArray = AllTypesTxValuesArray[TransactionType.Legacy]
@@ -195,7 +195,7 @@ export class LegacyTransaction extends BaseTransaction<TransactionType.Legacy> {
    * and you might need to do yourself with:
    *
    * ```javascript
-   * import { RLP } from '@ethereumjs/rlp'
+   * import { RLP } from '@nomicfoundation/ethereumjs-rlp'
    * const message = tx.getMessageToSign()
    * const serializedMessage = RLP.encode(message)) // use this for the HW wallet input
    * ```

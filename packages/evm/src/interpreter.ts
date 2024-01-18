@@ -1,4 +1,4 @@
-import { ConsensusAlgorithm } from '@ethereumjs/common'
+import { ConsensusAlgorithm } from '@nomicfoundation/ethereumjs-common'
 import {
   Account,
   BIGINT_0,
@@ -8,7 +8,7 @@ import {
   bytesToBigInt,
   bytesToHex,
   equalsBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 
 import { EOF } from './eof.js'
@@ -23,8 +23,8 @@ import type { Journal } from './journal.js'
 import type { EVMPerformanceLogger, Timer } from './logger.js'
 import type { AsyncOpHandler, Opcode, OpcodeMapEntry } from './opcodes/index.js'
 import type { Block, Blockchain, EVMProfilerOpts, EVMResult, Log } from './types.js'
-import type { Common, EVMStateManagerInterface } from '@ethereumjs/common'
-import type { Address } from '@ethereumjs/util'
+import type { Common, EVMStateManagerInterface } from '@nomicfoundation/ethereumjs-common'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 const { debug: createDebugLogger } = debugDefault
 
 const debugGas = createDebugLogger('evm:gas')

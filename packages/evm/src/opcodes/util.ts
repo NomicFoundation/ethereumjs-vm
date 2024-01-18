@@ -1,4 +1,4 @@
-import { Hardfork } from '@ethereumjs/common'
+import { Hardfork } from '@nomicfoundation/ethereumjs-common'
 import {
   BIGINT_0,
   BIGINT_1,
@@ -12,14 +12,14 @@ import {
   equalsBytes,
   setLengthLeft,
   setLengthRight,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { EvmError } from '../exceptions.js'
 
 import type { ERROR } from '../exceptions.js'
 import type { RunState } from '../interpreter.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 const MASK_160 = (BIGINT_1 << BIGINT_160) - BIGINT_1
 

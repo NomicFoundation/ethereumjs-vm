@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import Benchmark from 'benchmark'
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { Block } from '@ethereumjs/block'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { Block } from '@nomicfoundation/ethereumjs-block'
 import { VM } from '../dist/cjs'
 import { getPreState, getBlockchain, verifyResult } from './util'
 

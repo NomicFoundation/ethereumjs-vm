@@ -1,4 +1,4 @@
-import { KeyEncoding, ValueEncoding } from '@ethereumjs/util'
+import { KeyEncoding, ValueEncoding } from '@nomicfoundation/ethereumjs-util'
 
 import {
   HEADS_KEY,

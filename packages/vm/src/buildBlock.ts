@@ -1,8 +1,8 @@
-import { Block } from '@ethereumjs/block'
-import { ConsensusType, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { Trie } from '@ethereumjs/trie'
-import { BlobEIP4844Transaction } from '@ethereumjs/tx'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { ConsensusType, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import { BlobEIP4844Transaction } from '@nomicfoundation/ethereumjs-tx'
 import {
   Address,
   BIGINT_0,
@@ -15,7 +15,7 @@ import {
   toBytes,
   toType,
   zeros,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { Bloom } from './bloom/index.js'
 import {
@@ -27,8 +27,8 @@ import {
 
 import type { BuildBlockOpts, BuilderOpts, RunTxResult, SealBlockOpts } from './types.js'
 import type { VM } from './vm.js'
-import type { HeaderData } from '@ethereumjs/block'
-import type { TypedTransaction } from '@ethereumjs/tx'
+import type { HeaderData } from '@nomicfoundation/ethereumjs-block'
+import type { TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
 
 export enum BuildStatus {
   Reverted = 'reverted',

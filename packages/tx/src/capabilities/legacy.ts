@@ -1,4 +1,8 @@
-import { SECP256K1_ORDER_DIV_2, bigIntToUnpaddedBytes, ecrecover } from '@ethereumjs/util'
+import {
+  SECP256K1_ORDER_DIV_2,
+  bigIntToUnpaddedBytes,
+  ecrecover,
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { BaseTransaction } from '../baseTransaction.js'

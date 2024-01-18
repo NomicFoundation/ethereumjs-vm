@@ -1,9 +1,9 @@
-import { Block } from '@ethereumjs/block'
-import { ConsensusType, Hardfork } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { StatelessVerkleStateManager } from '@ethereumjs/statemanager'
-import { Trie } from '@ethereumjs/trie'
-import { TransactionType } from '@ethereumjs/tx'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { ConsensusType, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { StatelessVerkleStateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
+import { TransactionType } from '@nomicfoundation/ethereumjs-tx'
 import {
   Account,
   Address,
@@ -20,7 +20,7 @@ import {
   setLengthLeft,
   short,
   unprefixedHexToBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 
 import { Bloom } from './bloom/index.js'
@@ -34,7 +34,7 @@ import type {
   TxReceipt,
 } from './types.js'
 import type { VM } from './vm.js'
-import type { EVM, EVMInterface } from '@ethereumjs/evm'
+import type { EVM, EVMInterface } from '@nomicfoundation/ethereumjs-evm'
 
 const { debug: createDebugLogger } = debugDefault
 

@@ -1,5 +1,5 @@
-import { Hardfork } from '@ethereumjs/common'
-import { type Address, bytesToUnprefixedHex } from '@ethereumjs/util'
+import { Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { type Address, bytesToUnprefixedHex } from '@nomicfoundation/ethereumjs-util'
 
 import { precompile01 } from './01-ecrecover.js'
 import { precompile02 } from './02-sha256.js'
@@ -13,7 +13,7 @@ import { precompile09 } from './09-blake2f.js'
 import { precompile0a } from './0a-kzg-point-evaluation.js'
 
 import type { PrecompileFunc, PrecompileInput } from './types.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 interface PrecompileEntry {
   address: string

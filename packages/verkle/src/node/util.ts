@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 
 import { InternalNode } from './internalNode.js'
 import { LeafNode } from './leafNode.js'

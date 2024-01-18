@@ -11,8 +11,8 @@ import {
   short,
   toBytes,
   zeros,
-} from '@ethereumjs/util'
-import { getKey, getStem, verifyUpdate } from '@ethereumjs/verkle'
+} from '@nomicfoundation/ethereumjs-util'
+import { getKey, getStem, verifyUpdate } from '@nomicfoundation/ethereumjs-verkle'
 import debugDefault from 'debug'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 import { concatBytes, equalsBytes } from 'ethereum-cryptography/utils'
@@ -21,7 +21,7 @@ import { AccountCache, CacheType, StorageCache } from './cache/index.js'
 import { OriginalStorageCache } from './cache/originalStorageCache.js'
 
 import type { DefaultStateManager } from './stateManager.js'
-import type { VerkleExecutionWitness } from '@ethereumjs/block'
+import type { VerkleExecutionWitness } from '@nomicfoundation/ethereumjs-block'
 import type {
   AccountFields,
   Common,
@@ -29,8 +29,8 @@ import type {
   Proof,
   StorageDump,
   StorageRange,
-} from '@ethereumjs/common'
-import type { Address, PrefixedHexString } from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-common'
+import type { Address, PrefixedHexString } from '@nomicfoundation/ethereumjs-util'
 
 const { debug: createDebugLogger } = debugDefault
 

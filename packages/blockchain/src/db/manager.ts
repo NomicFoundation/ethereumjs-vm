@@ -1,5 +1,5 @@
-import { Block, BlockHeader, valuesArrayToHeaderData } from '@ethereumjs/block'
-import { RLP } from '@ethereumjs/rlp'
+import { Block, BlockHeader, valuesArrayToHeaderData } from '@nomicfoundation/ethereumjs-block'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   BIGINT_0,
   BIGINT_1,
@@ -9,15 +9,15 @@ import {
   bytesToHex,
   equalsBytes,
   unprefixedHexToBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { Cache } from './cache.js'
 import { DBOp, DBTarget } from './operation.js'
 
 import type { DatabaseKey } from './operation.js'
-import type { BlockBodyBytes, BlockBytes, BlockOptions } from '@ethereumjs/block'
-import type { Common } from '@ethereumjs/common'
-import type { BatchDBOp, DB, DBObject, DelBatch, PutBatch } from '@ethereumjs/util'
+import type { BlockBodyBytes, BlockBytes, BlockOptions } from '@nomicfoundation/ethereumjs-block'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type { BatchDBOp, DB, DBObject, DelBatch, PutBatch } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * @hidden

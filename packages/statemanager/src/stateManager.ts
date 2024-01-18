@@ -1,6 +1,6 @@
-import { Chain, Common } from '@ethereumjs/common'
-import { RLP } from '@ethereumjs/rlp'
-import { Trie } from '@ethereumjs/trie'
+import { Chain, Common } from '@nomicfoundation/ethereumjs-common'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
 import {
   Account,
   Address,
@@ -21,16 +21,20 @@ import {
   unpadBytes,
   unprefixedHexToBytes,
   utf8ToBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { AccountCache, CacheType, CodeCache, StorageCache } from './cache/index.js'
 import { OriginalStorageCache } from './cache/originalStorageCache.js'
 
-import type { AccountFields, EVMStateManagerInterface, StorageDump } from '@ethereumjs/common'
-import type { StorageRange } from '@ethereumjs/common/src'
-import type { DB, PrefixedHexString } from '@ethereumjs/util'
+import type {
+  AccountFields,
+  EVMStateManagerInterface,
+  StorageDump,
+} from '@nomicfoundation/ethereumjs-common'
+import type { StorageRange } from '@nomicfoundation/ethereumjs-common/src'
+import type { DB, PrefixedHexString } from '@nomicfoundation/ethereumjs-util'
 import type { Debugger } from 'debug'
 const { debug: createDebugLogger } = debugDefault
 

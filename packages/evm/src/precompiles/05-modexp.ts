@@ -13,7 +13,7 @@ import {
   setLengthLeft,
   setLengthRight,
   short,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { OOGResult } from '../evm.js'
 

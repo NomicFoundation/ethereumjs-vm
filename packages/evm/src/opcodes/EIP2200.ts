@@ -1,4 +1,4 @@
-import { equalsBytes } from '@ethereumjs/util'
+import { equalsBytes } from '@nomicfoundation/ethereumjs-util'
 
 import { ERROR } from '../exceptions.js'
 
@@ -6,7 +6,7 @@ import { adjustSstoreGasEIP2929 } from './EIP2929.js'
 import { trap } from './util.js'
 
 import type { RunState } from '../interpreter.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 /**
  * Adjusts gas usage and refunds of SStore ops per EIP-2200 (Istanbul)

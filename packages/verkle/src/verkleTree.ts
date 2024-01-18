@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { KeyEncoding, Lock, ValueEncoding, equalsBytes, zeros } from '@ethereumjs/util'
+import {
+  KeyEncoding,
+  Lock,
+  ValueEncoding,
+  equalsBytes,
+  zeros,
+} from '@nomicfoundation/ethereumjs-util'
 
 import { CheckpointDB } from './db/checkpoint.js'
 import { InternalNode } from './node/internalNode.js'
@@ -15,7 +21,7 @@ import { WalkController, matchingBytesLength } from './util/index.js'
 
 import type { VerkleNode } from './node/types.js'
 import type { FoundNodeFunction } from './types.js'
-import type { BatchDBOp, DB, PutBatch } from '@ethereumjs/util'
+import type { BatchDBOp, DB, PutBatch } from '@nomicfoundation/ethereumjs-util'
 
 interface Path {
   node: VerkleNode | null
@@ -24,7 +30,7 @@ interface Path {
 }
 
 /**
- * The basic verkle tree interface, use with `import { VerkleTree } from '@ethereumjs/verkle'`.
+ * The basic verkle tree interface, use with `import { VerkleTree } from '@nomicfoundation/ethereumjs-verkle'`.
  */
 export class VerkleTree {
   protected readonly _opts: VerkleTreeOptsWithDefaults = {

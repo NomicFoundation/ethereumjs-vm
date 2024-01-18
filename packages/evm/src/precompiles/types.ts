@@ -1,5 +1,5 @@
 import type { EVMInterface, ExecResult } from '../types.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 import type { debug } from 'debug'
 
 export interface PrecompileFunc {

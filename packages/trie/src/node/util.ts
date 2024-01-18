@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 
 import { isTerminator } from '../util/hex.js'
 import { bytesToNibbles } from '../util/nibbles.js'
@@ -7,7 +7,7 @@ import { BranchNode } from './branch.js'
 import { ExtensionNode } from './extension.js'
 import { LeafNode } from './leaf.js'
 
-import type { NestedUint8Array } from '@ethereumjs/util'
+import type { NestedUint8Array } from '@nomicfoundation/ethereumjs-util'
 
 export function decodeRawNode(raw: Uint8Array[]) {
   if (raw.length === 17) {

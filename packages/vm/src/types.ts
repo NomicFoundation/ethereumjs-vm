@@ -1,10 +1,10 @@
 import type { Bloom } from './bloom/index.js'
-import type { Block, BlockOptions, HeaderData } from '@ethereumjs/block'
-import type { BlockchainInterface } from '@ethereumjs/blockchain'
-import type { Common, EVMStateManagerInterface } from '@ethereumjs/common'
-import type { EVMInterface, EVMResult, Log } from '@ethereumjs/evm'
-import type { AccessList, TypedTransaction } from '@ethereumjs/tx'
-import type { BigIntLike, GenesisState, WithdrawalData } from '@ethereumjs/util'
+import type { Block, BlockOptions, HeaderData } from '@nomicfoundation/ethereumjs-block'
+import type { BlockchainInterface } from '@nomicfoundation/ethereumjs-blockchain'
+import type { Common, EVMStateManagerInterface } from '@nomicfoundation/ethereumjs-common'
+import type { EVMInterface, EVMResult, Log } from '@nomicfoundation/ethereumjs-evm'
+import type { AccessList, TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
+import type { BigIntLike, GenesisState, WithdrawalData } from '@nomicfoundation/ethereumjs-util'
 export type TxReceipt = PreByzantiumTxReceipt | PostByzantiumTxReceipt | EIP4844BlobTxReceipt
 
 /**

@@ -1,6 +1,6 @@
 import type { BlockHeader } from './header.js'
-import type { Common } from '@ethereumjs/common'
-import type { JsonRpcTx, JsonTx, TransactionType, TxData } from '@ethereumjs/tx'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
+import type { JsonRpcTx, JsonTx, TransactionType, TxData } from '@nomicfoundation/ethereumjs-tx'
 import type {
   AddressLike,
   BigIntLike,
@@ -9,7 +9,7 @@ import type {
   PrefixedHexString,
   WithdrawalBytes,
   WithdrawalData,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 /**
  * An object to set to which blockchain the blocks and their headers belong. This could be specified

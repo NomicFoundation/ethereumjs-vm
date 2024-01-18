@@ -1,6 +1,6 @@
-import { bytesToUnprefixedHex } from '@ethereumjs/util'
+import { bytesToUnprefixedHex } from '@nomicfoundation/ethereumjs-util'
 
-import type { Address } from '@ethereumjs/util'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 
 type getContractStorage = (address: Address, key: Uint8Array) => Promise<Uint8Array>
 

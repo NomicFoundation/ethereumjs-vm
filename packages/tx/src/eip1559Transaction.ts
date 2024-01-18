@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   BIGINT_0,
   BIGINT_27,
@@ -10,7 +10,7 @@ import {
   equalsBytes,
   toBytes,
   validateNoLeadingZeroes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { BaseTransaction } from './baseTransaction.js'
 import * as EIP1559 from './capabilities/eip1559.js'
@@ -28,7 +28,7 @@ import type {
   JsonTx,
   TxOptions,
 } from './types.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 type TxData = AllTypesTxData[TransactionType.FeeMarketEIP1559]
 type TxValuesArray = AllTypesTxValuesArray[TransactionType.FeeMarketEIP1559]

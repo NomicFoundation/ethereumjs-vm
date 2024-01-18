@@ -1,5 +1,5 @@
-import { Block, BlockHeader } from '@ethereumjs/block'
-import { RLP } from '@ethereumjs/rlp'
+import { Block, BlockHeader } from '@nomicfoundation/ethereumjs-block'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import {
   BIGINT_0,
   KeyEncoding,
@@ -13,7 +13,7 @@ import {
   hexToBytes,
   setLengthLeft,
   zeros,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256, keccak512 } from 'ethereum-cryptography/keccak.js'
 
 import {
@@ -27,8 +27,8 @@ import {
   params,
 } from './util.js'
 
-import type { BlockData, HeaderData } from '@ethereumjs/block'
-import type { DB, DBObject } from '@ethereumjs/util'
+import type { BlockData, HeaderData } from '@nomicfoundation/ethereumjs-block'
+import type { DB, DBObject } from '@nomicfoundation/ethereumjs-util'
 
 function xor(a: Uint8Array, b: Uint8Array) {
   const len = Math.max(a.length, b.length)

@@ -6,7 +6,7 @@ import {
   hexToBytes,
   intToBytes,
   toType,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { EventEmitter } from 'events'
 
 import { chains as CHAIN_SPECS } from './chains.js'
@@ -36,7 +36,7 @@ import type {
   HardforkConfig,
   HardforkTransitionConfig,
 } from './types.js'
-import type { BigIntLike, PrefixedHexString } from '@ethereumjs/util'
+import type { BigIntLike, PrefixedHexString } from '@nomicfoundation/ethereumjs-util'
 
 type HardforkSpecKeys = string // keyof typeof HARDFORK_SPECS
 type HardforkSpecValues = typeof HARDFORK_SPECS[HardforkSpecKeys]

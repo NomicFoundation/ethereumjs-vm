@@ -1,12 +1,12 @@
-import { TransactionFactory } from '@ethereumjs/tx'
-import { TypeOutput, setLengthLeft, toBytes, toType } from '@ethereumjs/util'
+import { TransactionFactory } from '@nomicfoundation/ethereumjs-tx'
+import { TypeOutput, setLengthLeft, toBytes, toType } from '@nomicfoundation/ethereumjs-util'
 
 import { blockHeaderFromRpc } from './header-from-rpc.js'
 
 import { Block } from './index.js'
 
 import type { BlockOptions, JsonRpcBlock } from './index.js'
-import type { TypedTransaction } from '@ethereumjs/tx'
+import type { TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
 
 function normalizeTxParams(_txParams: any) {
   const txParams = Object.assign({}, _txParams)

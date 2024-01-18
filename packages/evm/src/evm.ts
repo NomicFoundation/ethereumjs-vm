@@ -1,5 +1,5 @@
-import { Chain, Common, Hardfork } from '@ethereumjs/common'
-import { DefaultStateManager } from '@ethereumjs/statemanager'
+import { Chain, Common, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { DefaultStateManager } from '@nomicfoundation/ethereumjs-statemanager'
 import {
   Account,
   Address,
@@ -15,7 +15,7 @@ import {
   generateAddress2,
   short,
   zeros,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 
 import { EOF, getEOFCode } from './eof.js'
@@ -47,7 +47,7 @@ import type {
   EVMRunCodeOpts,
   ExecResult,
 } from './types.js'
-import type { EVMStateManagerInterface } from '@ethereumjs/common'
+import type { EVMStateManagerInterface } from '@nomicfoundation/ethereumjs-common'
 const { debug: createDebugLogger } = debugDefault
 
 const debug = createDebugLogger('evm:evm')

@@ -1,4 +1,4 @@
-import { Chain, Common } from '@ethereumjs/common'
+import { Chain, Common } from '@nomicfoundation/ethereumjs-common'
 import {
   Address,
   BIGINT_0,
@@ -11,7 +11,7 @@ import {
   publicToAddress,
   toBytes,
   unpadBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { Capability, TransactionType } from './types.js'
 import { checkMaxInitCodeSize } from './util.js'
@@ -25,7 +25,7 @@ import type {
   TxOptions,
   TxValuesArray,
 } from './types.js'
-import type { BigIntLike } from '@ethereumjs/util'
+import type { BigIntLike } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * This base class will likely be subject to further

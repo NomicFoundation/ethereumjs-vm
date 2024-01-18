@@ -1,4 +1,4 @@
-import { bytesToUnprefixedHex } from '@ethereumjs/util'
+import { bytesToUnprefixedHex } from '@nomicfoundation/ethereumjs-util'
 import { LRUCache } from 'lru-cache'
 
 /**

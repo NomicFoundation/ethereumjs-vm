@@ -1,4 +1,4 @@
-import { TypeOutput, setLengthLeft, toBytes, toType } from '@ethereumjs/util'
+import { TypeOutput, setLengthLeft, toBytes, toType } from '@nomicfoundation/ethereumjs-util'
 
 import type { TypedTxData } from './types.js'
 

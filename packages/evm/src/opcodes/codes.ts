@@ -1,4 +1,4 @@
-import { Hardfork } from '@ethereumjs/common'
+import { Hardfork } from '@nomicfoundation/ethereumjs-common'
 
 import { handlers } from './functions.js'
 import { dynamicGasHandlers } from './gas.js'
@@ -7,7 +7,7 @@ import { getFullname } from './util.js'
 import type { CustomOpcode } from '../types.js'
 import type { OpHandler } from './functions.js'
 import type { AsyncDynamicGasHandler, SyncDynamicGasHandler } from './gas.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 export class Opcode {
   readonly code: number

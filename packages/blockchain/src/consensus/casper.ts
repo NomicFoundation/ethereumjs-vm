@@ -1,8 +1,8 @@
-import { ConsensusAlgorithm } from '@ethereumjs/common'
-import { BIGINT_0 } from '@ethereumjs/util'
+import { ConsensusAlgorithm } from '@nomicfoundation/ethereumjs-common'
+import { BIGINT_0 } from '@nomicfoundation/ethereumjs-util'
 
 import type { Consensus } from '../types.js'
-import type { BlockHeader } from '@ethereumjs/block'
+import type { BlockHeader } from '@nomicfoundation/ethereumjs-block'
 
 /**
  * This class encapsulates Casper-related consensus functionality when used with the Blockchain class.

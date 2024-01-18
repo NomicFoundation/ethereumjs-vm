@@ -1,4 +1,4 @@
-import { Hardfork } from '@ethereumjs/common'
+import { Hardfork } from '@nomicfoundation/ethereumjs-common'
 import {
   Address,
   BIGINT_0,
@@ -8,7 +8,7 @@ import {
   BIGINT_32,
   bigIntToBytes,
   setLengthLeft,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { ERROR } from '../exceptions.js'
 
@@ -26,7 +26,7 @@ import {
 } from './util.js'
 
 import type { RunState } from '../interpreter.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 /**
  * This file returns the dynamic parts of opcodes which have dynamic gas

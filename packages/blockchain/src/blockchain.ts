@@ -1,4 +1,4 @@
-import { Block, BlockHeader } from '@ethereumjs/block'
+import { Block, BlockHeader } from '@nomicfoundation/ethereumjs-block'
 import {
   Chain,
   ChainGenesis,
@@ -6,8 +6,8 @@ import {
   ConsensusAlgorithm,
   ConsensusType,
   Hardfork,
-} from '@ethereumjs/common'
-import { genesisStateRoot as genMerkleGenesisStateRoot } from '@ethereumjs/trie'
+} from '@nomicfoundation/ethereumjs-common'
+import { genesisStateRoot as genMerkleGenesisStateRoot } from '@nomicfoundation/ethereumjs-trie'
 import {
   AsyncEventEmitter,
   BIGINT_0,
@@ -20,7 +20,7 @@ import {
   bytesToUnprefixedHex,
   concatBytes,
   equalsBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 
 import { CasperConsensus, CliqueConsensus, EthashConsensus } from './consensus/index.js'
 import {
@@ -41,9 +41,9 @@ import type {
   GenesisOptions,
   OnBlock,
 } from './types.js'
-import type { BlockData } from '@ethereumjs/block'
-import type { CliqueConfig } from '@ethereumjs/common'
-import type { BigIntLike, DB, DBObject, GenesisState } from '@ethereumjs/util'
+import type { BlockData } from '@nomicfoundation/ethereumjs-block'
+import type { CliqueConfig } from '@nomicfoundation/ethereumjs-common'
+import type { BigIntLike, DB, DBObject, GenesisState } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * Verkle or Merkle genesis root

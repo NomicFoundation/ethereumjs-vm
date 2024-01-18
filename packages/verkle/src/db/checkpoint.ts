@@ -1,8 +1,13 @@
-import { KeyEncoding, ValueEncoding, bytesToHex, hexToBytes } from '@ethereumjs/util'
+import {
+  KeyEncoding,
+  ValueEncoding,
+  bytesToHex,
+  hexToBytes,
+} from '@nomicfoundation/ethereumjs-util'
 import { LRUCache } from 'lru-cache'
 
 import type { Checkpoint, CheckpointDBOpts } from '../types.js'
-import type { BatchDBOp, DB, DelBatch, PutBatch } from '@ethereumjs/util'
+import type { BatchDBOp, DB, DelBatch, PutBatch } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * DB is a thin wrapper around the underlying levelup db,

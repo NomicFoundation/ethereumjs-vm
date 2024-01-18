@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 
 import { addHexPrefix, removeHexPrefix } from '../util/hex.js'
 import { nibblestoBytes } from '../util/nibbles.js'

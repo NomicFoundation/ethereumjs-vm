@@ -1,6 +1,6 @@
 {
-  "name": "@ethereumjs/ethash",
-  "version": "3.0.1",
+  "name": "@nomicfoundation/ethereumjs-ethash",
+  "version": "3.0.4",
   "description": "An implementation of the Ethash consensus algorithm in JavaScript",
   "keywords": [
     "ethash",
@@ -39,19 +39,18 @@
     "lint": "../../config/cli/lint.sh",
     "lint:diff": "../../config/cli/lint-diff.sh",
     "lint:fix": "../../config/cli/lint-fix.sh",
-    "prepublishOnly": "../../config/cli/prepublish.sh",
     "test": "npx vitest run",
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/block": "^5.0.1",
-    "@ethereumjs/rlp": "^5.0.1",
-    "@ethereumjs/util": "^9.0.1",
+    "@nomicfoundation/ethereumjs-block": "5.0.4",
+    "@nomicfoundation/ethereumjs-rlp": "5.0.4",
+    "@nomicfoundation/ethereumjs-util": "9.0.4",
     "bigint-crypto-utils": "^3.2.2",
     "ethereum-cryptography": "^2.1.2"
   },
   "devDependencies": {
-    "@ethereumjs/common": "^4.1.0"
+    "@nomicfoundation/ethereumjs-common": "4.0.4"
   },
   "engines": {
     "node": ">=18"

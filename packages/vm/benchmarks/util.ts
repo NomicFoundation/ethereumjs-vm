@@ -1,7 +1,7 @@
-import { Account, Address, BIGINT_0, equalsBytes, toBytes } from '@ethereumjs/util'
-import { Common } from '@ethereumjs/common'
-import { Block } from '@ethereumjs/block'
-import { DefaultStateManager } from '@ethereumjs/statemanager'
+import { Account, Address, BIGINT_0, equalsBytes, toBytes } from '@nomicfoundation/ethereumjs-util'
+import { Common } from '@nomicfoundation/ethereumjs-common'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { DefaultStateManager } from '@nomicfoundation/ethereumjs-statemanager'
 import { RunBlockResult } from '../dist/cjs/types'
 import { Mockchain } from './mockchain'
 

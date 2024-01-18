@@ -1,7 +1,12 @@
 import type { Blockchain } from '.'
-import type { Block, BlockHeader } from '@ethereumjs/block'
-import type { Common, ConsensusAlgorithm } from '@ethereumjs/common'
-import type { AsyncEventEmitter, DB, DBObject, GenesisState } from '@ethereumjs/util'
+import type { Block, BlockHeader } from '@nomicfoundation/ethereumjs-block'
+import type { Common, ConsensusAlgorithm } from '@nomicfoundation/ethereumjs-common'
+import type {
+  AsyncEventEmitter,
+  DB,
+  DBObject,
+  GenesisState,
+} from '@nomicfoundation/ethereumjs-util'
 
 export type OnBlock = (block: Block, reorg: boolean) => Promise<void> | void
 

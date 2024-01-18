@@ -1,6 +1,6 @@
 {
-  "name": "@ethereumjs/verkle",
-  "version": "0.0.1",
+  "name": "@nomicfoundation/ethereumjs-verkle",
+  "version": "0.0.2",
   "description": "Implementation of verkle trees as used in Ethereum.",
   "keywords": [
     "verkle",
@@ -45,14 +45,13 @@
     "lint": "../../config/cli/lint.sh",
     "lint:diff": "../../config/cli/lint-diff.sh",
     "lint:fix": "../../config/cli/lint-fix.sh",
-    "prepublishOnly": "../../config/cli/prepublish.sh",
     "test": "npm run test:node",
     "test:node": "npx vitest run",
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/rlp": "5.0.1",
-    "@ethereumjs/util": "9.0.1",
+    "@nomicfoundation/ethereumjs-rlp": "5.0.4",
+    "@nomicfoundation/ethereumjs-util": "9.0.4",
     "lru-cache": "^10.0.0",
     "rust-verkle-wasm": "^0.0.1"
   },

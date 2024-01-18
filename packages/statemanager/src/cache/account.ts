@@ -1,4 +1,4 @@
-import { bytesToUnprefixedHex } from '@ethereumjs/util'
+import { bytesToUnprefixedHex } from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 import { OrderedMap } from 'js-sdsl'
 import { LRUCache } from 'lru-cache'
@@ -7,7 +7,7 @@ import { Cache } from './cache.js'
 import { CacheType } from './types.js'
 
 import type { CacheOpts } from './types.js'
-import type { Account, Address } from '@ethereumjs/util'
+import type { Account, Address } from '@nomicfoundation/ethereumjs-util'
 const { debug: createDebugLogger } = debugDefault
 
 /**

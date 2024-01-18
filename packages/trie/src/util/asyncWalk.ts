@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import { equalsBytes, toHex } from 'ethereum-cryptography/utils'
 
 import { BranchNode } from '../node/branch.js'

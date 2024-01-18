@@ -1,5 +1,5 @@
-import { Chain, Common } from '@ethereumjs/common'
-import { Trie } from '@ethereumjs/trie'
+import { Chain, Common } from '@nomicfoundation/ethereumjs-common'
+import { Trie } from '@nomicfoundation/ethereumjs-trie'
 import {
   Account,
   bigIntToHex,
@@ -8,7 +8,7 @@ import {
   hexToBytes,
   intToHex,
   toBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
@@ -20,8 +20,8 @@ import type {
   EVMStateManagerInterface,
   StorageDump,
   StorageRange,
-} from '@ethereumjs/common'
-import type { Address } from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-common'
+import type { Address } from '@nomicfoundation/ethereumjs-util'
 import type { Debugger } from 'debug'
 const { debug: createDebugLogger } = debugDefault
 

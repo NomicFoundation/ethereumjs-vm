@@ -1,8 +1,14 @@
-import { BlobEIP4844Transaction } from '@ethereumjs/tx'
-import { BIGINT_0, BIGINT_1, TypeOutput, isHexString, toType } from '@ethereumjs/util'
+import { BlobEIP4844Transaction } from '@nomicfoundation/ethereumjs-tx'
+import {
+  BIGINT_0,
+  BIGINT_1,
+  TypeOutput,
+  isHexString,
+  toType,
+} from '@nomicfoundation/ethereumjs-util'
 
 import type { BlockHeaderBytes, HeaderData } from './types.js'
-import type { TypedTransaction } from '@ethereumjs/tx'
+import type { TypedTransaction } from '@nomicfoundation/ethereumjs-tx'
 
 /**
  * Returns a 0x-prefixed hex number string from a hex string or string integer.

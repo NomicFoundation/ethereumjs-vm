@@ -1,10 +1,16 @@
-import { RLP } from '@ethereumjs/rlp'
-import { Account, isHexPrefixed, toBytes, unpadBytes, unprefixedHexToBytes } from '@ethereumjs/util'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import {
+  Account,
+  isHexPrefixed,
+  toBytes,
+  unpadBytes,
+  unprefixedHexToBytes,
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { Trie } from '../trie.js'
 
-import type { AccountState, GenesisState } from '@ethereumjs/util'
+import type { AccountState, GenesisState } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * Derives the stateRoot of the genesis block based on genesis allocations

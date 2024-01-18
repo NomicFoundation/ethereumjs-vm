@@ -1,4 +1,4 @@
-import { bytesToHex, short } from '@ethereumjs/util'
+import { bytesToHex, short } from '@nomicfoundation/ethereumjs-util'
 import { sha256 } from 'ethereum-cryptography/sha256.js'
 
 import { OOGResult } from '../evm.js'

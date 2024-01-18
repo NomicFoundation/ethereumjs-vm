@@ -29,7 +29,7 @@ import {
   publicToAddress,
   setLengthLeft,
   setLengthRight,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { ERROR } from '../exceptions.js'
@@ -49,7 +49,7 @@ import {
 } from './util.js'
 
 import type { RunState } from '../interpreter.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 const EIP3074MAGIC = hexToBytes('0x03')
 

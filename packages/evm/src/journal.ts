@@ -1,15 +1,15 @@
-import { Hardfork } from '@ethereumjs/common'
+import { Hardfork } from '@nomicfoundation/ethereumjs-common'
 import {
   Address,
   RIPEMD160_ADDRESS_STRING,
   bytesToUnprefixedHex,
   stripHexPrefix,
   toBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 
-import type { Common, EVMStateManagerInterface } from '@ethereumjs/common'
-import type { Account } from '@ethereumjs/util'
+import type { Common, EVMStateManagerInterface } from '@nomicfoundation/ethereumjs-common'
+import type { Account } from '@nomicfoundation/ethereumjs-util'
 import type { Debugger } from 'debug'
 const { debug: createDebugLogger } = debugDefault
 

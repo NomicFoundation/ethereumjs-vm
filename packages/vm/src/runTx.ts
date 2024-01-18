@@ -1,6 +1,6 @@
-import { Block } from '@ethereumjs/block'
-import { ConsensusType, Hardfork } from '@ethereumjs/common'
-import { BlobEIP4844Transaction, Capability, isBlobEIP4844Tx } from '@ethereumjs/tx'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { ConsensusType, Hardfork } from '@nomicfoundation/ethereumjs-common'
+import { BlobEIP4844Transaction, Capability, isBlobEIP4844Tx } from '@nomicfoundation/ethereumjs-tx'
 import {
   Account,
   Address,
@@ -11,7 +11,7 @@ import {
   equalsBytes,
   hexToBytes,
   short,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
 
 import { Bloom } from './bloom/index.js'
@@ -27,14 +27,14 @@ import type {
   TxReceipt,
 } from './types.js'
 import type { VM } from './vm.js'
-import type { AccessList, AccessListItem, Common } from '@ethereumjs/common'
-import type { EVM } from '@ethereumjs/evm'
+import type { AccessList, AccessListItem, Common } from '@nomicfoundation/ethereumjs-common'
+import type { EVM } from '@nomicfoundation/ethereumjs-evm'
 import type {
   AccessListEIP2930Transaction,
   FeeMarketEIP1559Transaction,
   LegacyTransaction,
   TypedTransaction,
-} from '@ethereumjs/tx'
+} from '@nomicfoundation/ethereumjs-tx'
 const { debug: createDebugLogger } = debugDefault
 
 const debug = createDebugLogger('vm:tx')

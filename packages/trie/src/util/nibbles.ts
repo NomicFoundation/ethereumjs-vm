@@ -1,4 +1,4 @@
-import { toBytes } from '@ethereumjs/util'
+import { toBytes } from '@nomicfoundation/ethereumjs-util'
 
 import type { Nibbles } from '../types.js'
 

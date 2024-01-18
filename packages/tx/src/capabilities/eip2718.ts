@@ -1,5 +1,5 @@
-import { RLP } from '@ethereumjs/rlp'
-import { BIGINT_0, BIGINT_1, concatBytes } from '@ethereumjs/util'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { BIGINT_0, BIGINT_1, concatBytes } from '@nomicfoundation/ethereumjs-util'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { txTypeBytes } from '../util.js'
@@ -7,7 +7,7 @@ import { txTypeBytes } from '../util.js'
 import { errorMsg } from './legacy.js'
 
 import type { EIP2718CompatibleTx } from '../types.js'
-import type { Input } from '@ethereumjs/rlp'
+import type { Input } from '@nomicfoundation/ethereumjs-rlp'
 
 export function getHashedMessageToSign(tx: EIP2718CompatibleTx): Uint8Array {
   const keccakFunction = tx.common.customCrypto.keccak256 ?? keccak256

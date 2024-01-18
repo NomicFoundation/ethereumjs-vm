@@ -1,4 +1,4 @@
-import { equalsBytes } from '@ethereumjs/util'
+import { equalsBytes } from '@nomicfoundation/ethereumjs-util'
 
 import { POINT_IDENTITY } from '../util/crypto.js'
 

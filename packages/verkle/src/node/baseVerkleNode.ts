@@ -1,4 +1,4 @@
-import { RLP } from '@ethereumjs/rlp'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 
 import { type VerkleNodeInterface, type VerkleNodeOptions, type VerkleNodeType } from './types.js'
 

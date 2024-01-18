@@ -1,11 +1,11 @@
-import { Block } from '@ethereumjs/block'
-import { RLP } from '@ethereumjs/rlp'
-import { BIGINT_0 } from '@ethereumjs/util'
+import { Block } from '@nomicfoundation/ethereumjs-block'
+import { RLP } from '@nomicfoundation/ethereumjs-rlp'
+import { BIGINT_0 } from '@nomicfoundation/ethereumjs-util'
 
 import { bytesBE8 } from './constants.js'
 import { DBOp, DBTarget } from './operation.js'
 
-import type { BlockHeader } from '@ethereumjs/block'
+import type { BlockHeader } from '@nomicfoundation/ethereumjs-block'
 
 /*
  * This extra helper file serves as an interface between the blockchain API functionality

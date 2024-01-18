@@ -1,8 +1,13 @@
-import { Blockchain } from '@ethereumjs/blockchain'
-import { Chain, Common } from '@ethereumjs/common'
-import { EVM, getActivePrecompiles } from '@ethereumjs/evm'
-import { DefaultStateManager } from '@ethereumjs/statemanager'
-import { Account, Address, AsyncEventEmitter, unprefixedHexToBytes } from '@ethereumjs/util'
+import { Blockchain } from '@nomicfoundation/ethereumjs-blockchain'
+import { Chain, Common } from '@nomicfoundation/ethereumjs-common'
+import { EVM, getActivePrecompiles } from '@nomicfoundation/ethereumjs-evm'
+import { DefaultStateManager } from '@nomicfoundation/ethereumjs-statemanager'
+import {
+  Account,
+  Address,
+  AsyncEventEmitter,
+  unprefixedHexToBytes,
+} from '@nomicfoundation/ethereumjs-util'
 
 import { buildBlock } from './buildBlock.js'
 import { runBlock } from './runBlock.js'
@@ -18,11 +23,11 @@ import type {
   VMEvents,
   VMOpts,
 } from './types.js'
-import type { BlockchainInterface } from '@ethereumjs/blockchain'
-import type { EVMStateManagerInterface } from '@ethereumjs/common'
-import type { EVMInterface } from '@ethereumjs/evm'
-import type { EVMPerformanceLogOutput } from '@ethereumjs/evm/dist/cjs/logger.js'
-import type { BigIntLike, GenesisState } from '@ethereumjs/util'
+import type { BlockchainInterface } from '@nomicfoundation/ethereumjs-blockchain'
+import type { EVMStateManagerInterface } from '@nomicfoundation/ethereumjs-common'
+import type { EVMInterface } from '@nomicfoundation/ethereumjs-evm'
+import type { EVMPerformanceLogOutput } from '@nomicfoundation/ethereumjs-evm/dist/cjs/logger.js'
+import type { BigIntLike, GenesisState } from '@nomicfoundation/ethereumjs-util'
 
 /**
  * Execution engine which can be used to run a blockchain, individual

@@ -2,7 +2,7 @@
  * External Interfaces for other EthereumJS libraries
  */
 
-import type { Account, Address, PrefixedHexString } from '@ethereumjs/util'
+import type { Account, Address, PrefixedHexString } from '@nomicfoundation/ethereumjs-util'
 
 export interface StorageDump {
   [key: string]: string

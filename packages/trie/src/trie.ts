@@ -13,7 +13,7 @@ import {
   concatBytes,
   equalsBytes,
   unprefixedHexToBytes,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import debug from 'debug'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
 
@@ -47,7 +47,7 @@ import type {
   TrieShallowCopyOpts,
 } from './types.js'
 import type { OnFound } from './util/asyncWalk.js'
-import type { BatchDBOp, DB, PutBatch } from '@ethereumjs/util'
+import type { BatchDBOp, DB, PutBatch } from '@nomicfoundation/ethereumjs-util'
 import type { Debugger } from 'debug'
 // Since ReadableStream is from a Web API, the following type import
 // is not needed in and should be ignored by the browser, so an exeption
@@ -63,7 +63,7 @@ interface Path {
 }
 
 /**
- * The basic trie interface, use with `import { Trie } from '@ethereumjs/trie'`.
+ * The basic trie interface, use with `import { Trie } from '@nomicfoundation/ethereumjs-trie'`.
  */
 export class Trie {
   protected readonly _opts: TrieOptsWithDefaults = {

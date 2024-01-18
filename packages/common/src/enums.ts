@@ -1,4 +1,4 @@
-import { BIGINT_0, hexToBytes } from '@ethereumjs/util'
+import { BIGINT_0, hexToBytes } from '@nomicfoundation/ethereumjs-util'
 
 export enum Chain {
   Mainnet = 1,

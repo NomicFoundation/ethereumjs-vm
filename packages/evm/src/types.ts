@@ -1,4 +1,4 @@
-import { zeros } from '@ethereumjs/util'
+import { zeros } from '@nomicfoundation/ethereumjs-util'
 
 import type { EvmError } from './exceptions.js'
 import type { InterpreterStep, RunState } from './interpreter.js'
@@ -7,8 +7,8 @@ import type { AsyncDynamicGasHandler, SyncDynamicGasHandler } from './opcodes/ga
 import type { OpHandler } from './opcodes/index.js'
 import type { CustomPrecompile } from './precompiles/index.js'
 import type { PrecompileFunc } from './precompiles/types.js'
-import type { Common, EVMStateManagerInterface } from '@ethereumjs/common'
-import type { Account, Address, AsyncEventEmitter } from '@ethereumjs/util'
+import type { Common, EVMStateManagerInterface } from '@nomicfoundation/ethereumjs-common'
+import type { Account, Address, AsyncEventEmitter } from '@nomicfoundation/ethereumjs-util'
 
 export type DeleteOpcode = {
   opcode: number

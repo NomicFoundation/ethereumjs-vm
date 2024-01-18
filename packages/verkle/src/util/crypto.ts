@@ -5,7 +5,7 @@ import {
   int32ToBytes,
   setLengthLeft,
   setLengthRight,
-} from '@ethereumjs/util'
+} from '@nomicfoundation/ethereumjs-util'
 import { pedersen_hash, verify_update } from 'rust-verkle-wasm'
 
 import type { Point } from '../types.js'

@@ -1,4 +1,4 @@
-import { fetchFromProvider, getProvider } from '@ethereumjs/util'
+import { fetchFromProvider, getProvider } from '@nomicfoundation/ethereumjs-util'
 
 import { FeeMarketEIP1559Transaction } from './eip1559Transaction.js'
 import { AccessListEIP2930Transaction } from './eip2930Transaction.js'
@@ -14,7 +14,7 @@ import {
 } from './types.js'
 
 import type { Transaction, TxData, TxOptions, TypedTxData } from './types.js'
-import type { EthersProvider } from '@ethereumjs/util'
+import type { EthersProvider } from '@nomicfoundation/ethereumjs-util'
 
 export class TransactionFactory {
   // It is not possible to instantiate a TransactionFactory object.

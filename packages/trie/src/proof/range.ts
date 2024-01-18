@@ -1,4 +1,4 @@
-import { equalsBytes } from '@ethereumjs/util'
+import { equalsBytes } from '@nomicfoundation/ethereumjs-util'
 
 import { BranchNode, ExtensionNode, LeafNode } from '../node/index.js'
 import { Trie } from '../trie.js'

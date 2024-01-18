@@ -1,4 +1,4 @@
-import { bigIntToHex } from '@ethereumjs/util'
+import { bigIntToHex } from '@nomicfoundation/ethereumjs-util'
 
 import type { ExecutionPayload, VerkleExecutionWitness } from './types.js'
 

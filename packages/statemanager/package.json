@@ -1,6 +1,6 @@
 {
-  "name": "@ethereumjs/statemanager",
-  "version": "2.1.0",
+  "name": "@nomicfoundation/ethereumjs-statemanager",
+  "version": "2.0.4",
   "description": "An Ethereum statemanager implementation",
   "keywords": [
     "ethereum",
@@ -41,31 +41,30 @@
     "lint": "../../config/cli/lint.sh",
     "lint:diff": "../../config/cli/lint-diff.sh",
     "lint:fix": "../../config/cli/lint-fix.sh",
-    "prepublishOnly": "../../config/cli/prepublish.sh && npm run test:node",
     "test": "npm run test:node && npm run test:browser",
     "test:browser": "npx vitest run --config=vitest.config.browser.ts --browser.name=webkit --browser.provider=playwright --browser.headless",
     "test:node": "npx vitest run",
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/common": "^4.1.0",
-    "@ethereumjs/rlp": "^5.0.1",
-    "@ethereumjs/trie": "^6.0.1",
-    "@ethereumjs/util": "^9.0.1",
+    "@nomicfoundation/ethereumjs-common": "4.0.4",
+    "@nomicfoundation/ethereumjs-rlp": "5.0.4",
+    "@nomicfoundation/ethereumjs-trie": "6.0.4",
+    "@nomicfoundation/ethereumjs-util": "9.0.4",
     "debug": "^4.3.3",
     "ethereum-cryptography": "^2.1.2",
     "js-sdsl": "^4.1.4",
     "lru-cache": "^10.0.0"
   },
   "devDependencies": {
-    "@ethereumjs/block": "^5.0.1",
+    "@nomicfoundation/ethereumjs-block": "5.0.4",
     "@types/debug": "^4.1.9"
   },
   "peerDependencies": {
-    "@ethereumjs/verkle": "^0.0.1"
+    "@nomicfoundation/ethereumjs-verkle": "0.0.2"
   },
   "peerDependenciesMeta": {
-    "@ethereumjs/verkle": {
+    "@nomicfoundation/ethereumjs-verkle": {
       "optional": true
     }
   }

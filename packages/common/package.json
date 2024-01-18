@@ -1,6 +1,6 @@
 {
-  "name": "@ethereumjs/common",
-  "version": "4.1.0",
+  "name": "@nomicfoundation/ethereumjs-common",
+  "version": "4.0.4",
   "description": "Resources common to all Ethereum implementations",
   "keywords": [
     "ethereum",
@@ -49,13 +49,12 @@
     "lint": "../../config/cli/lint.sh",
     "lint:diff": "../../config/cli/lint-diff.sh",
     "lint:fix": "../../config/cli/lint-fix.sh",
-    "prepublishOnly": "../../config/cli/prepublish.sh",
     "test": "npm run test:node && npm run test:browser",
     "test:browser": "npx vitest run --browser.name=chrome --browser.headless",
     "test:node": "npx vitest run",
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/util": "^9.0.1"
+    "@nomicfoundation/ethereumjs-util": "9.0.4"
   }
 }

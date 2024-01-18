@@ -1,8 +1,8 @@
-import { utf8ToBytes } from '@ethereumjs/util'
+import { utf8ToBytes } from '@nomicfoundation/ethereumjs-util'
 
 import type { BranchNode, ExtensionNode, LeafNode } from './node/index.js'
 import type { WalkController } from './util/walkController.js'
-import type { DB, ValueEncoding } from '@ethereumjs/util'
+import type { DB, ValueEncoding } from '@nomicfoundation/ethereumjs-util'
 
 export type TrieNode = BranchNode | ExtensionNode | LeafNode
 

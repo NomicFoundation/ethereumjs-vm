@@ -1,9 +1,9 @@
-import { bytesToHex, hexToBytes, setLengthLeft } from '@ethereumjs/util'
+import { bytesToHex, hexToBytes, setLengthLeft } from '@nomicfoundation/ethereumjs-util'
 
 import { isAccessList } from './types.js'
 
 import type { AccessList, AccessListBytes, AccessListItem, TransactionType } from './types.js'
-import type { Common } from '@ethereumjs/common'
+import type { Common } from '@nomicfoundation/ethereumjs-common'
 
 export function checkMaxInitCodeSize(common: Common, length: number) {
   const maxInitCodeSize = common.param('vm', 'maxInitCodeSize')

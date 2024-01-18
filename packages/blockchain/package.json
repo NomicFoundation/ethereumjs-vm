@@ -1,6 +1,6 @@
 {
-  "name": "@ethereumjs/blockchain",
-  "version": "7.0.1",
+  "name": "@nomicfoundation/ethereumjs-blockchain",
+  "version": "7.0.4",
   "description": "A module to store and interact with blocks",
   "keywords": [
     "ethereum",
@@ -39,20 +39,19 @@
     "lint": "../../config/cli/lint.sh",
     "lint:diff": "../../config/cli/lint-diff.sh",
     "lint:fix": "../../config/cli/lint-fix.sh",
-    "prepublishOnly": "../../config/cli/prepublish.sh",
     "test": "npm run test:node && npm run test:browser",
     "test:browser": "npx vitest run --browser.name=webkit --browser.provider=playwright --browser.headless",
     "test:node": "npx vitest run",
     "tsc": "../../config/cli/ts-compile.sh"
   },
   "dependencies": {
-    "@ethereumjs/block": "^5.0.1",
-    "@ethereumjs/common": "^4.1.0",
-    "@ethereumjs/ethash": "^3.0.1",
-    "@ethereumjs/rlp": "^5.0.1",
-    "@ethereumjs/trie": "^6.0.1",
-    "@ethereumjs/tx": "^5.1.0",
-    "@ethereumjs/util": "^9.0.1",
+    "@nomicfoundation/ethereumjs-block": "5.0.4",
+    "@nomicfoundation/ethereumjs-common": "4.0.4",
+    "@nomicfoundation/ethereumjs-ethash": "3.0.4",
+    "@nomicfoundation/ethereumjs-rlp": "5.0.4",
+    "@nomicfoundation/ethereumjs-trie": "6.0.4",
+    "@nomicfoundation/ethereumjs-tx": "5.0.4",
+    "@nomicfoundation/ethereumjs-util": "9.0.4",
     "debug": "^4.3.3",
     "ethereum-cryptography": "^2.1.2",
     "lru-cache": "^10.0.0"

@@ -1,4 +1,4 @@
-import { bytesToHex, setLengthLeft, short } from '@ethereumjs/util'
+import { bytesToHex, setLengthLeft, short } from '@nomicfoundation/ethereumjs-util'
 import { ripemd160 } from 'ethereum-cryptography/ripemd160.js'
 
 import { OOGResult } from '../evm.js'

@@ -1,4 +1,4 @@
-import { intToHex, isHexPrefixed, stripHexPrefix } from '@ethereumjs/util'
+import { intToHex, isHexPrefixed, stripHexPrefix } from '@nomicfoundation/ethereumjs-util'
 
 import { Hardfork } from './enums.js'
 

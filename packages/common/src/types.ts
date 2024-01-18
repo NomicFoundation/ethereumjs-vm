@@ -1,5 +1,5 @@
 import type { Chain, ConsensusAlgorithm, ConsensusType, Hardfork } from './enums.js'
-import type { BigIntLike, ECDSASignature } from '@ethereumjs/util'
+import type { BigIntLike, ECDSASignature } from '@nomicfoundation/ethereumjs-util'
 
 export interface ChainName {
   [chainId: string]: string

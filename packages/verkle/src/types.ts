@@ -1,8 +1,8 @@
-import { utf8ToBytes } from '@ethereumjs/util'
+import { utf8ToBytes } from '@nomicfoundation/ethereumjs-util'
 
 import type { VerkleNode } from './node/index.js'
 import type { WalkController } from './util/walkController.js'
-import type { DB } from '@ethereumjs/util'
+import type { DB } from '@nomicfoundation/ethereumjs-util'
 
 // Field representation of a commitment
 export interface Fr {}

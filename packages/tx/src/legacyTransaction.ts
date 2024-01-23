@@ -266,7 +266,7 @@ export class LegacyTransaction extends BaseTransaction<TransactionType.Legacy> {
   /**
    * Returns the public key of the sender
    */
-  getSenderPublicKey(): Uint8Array {
+  _getSenderPublicKey(): Uint8Array {
     return Legacy.getSenderPublicKey(this)
   }
 

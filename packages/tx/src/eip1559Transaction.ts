@@ -304,7 +304,7 @@ export class FeeMarketEIP1559Transaction extends BaseTransaction<TransactionType
   /**
    * Returns the public key of the sender
    */
-  public getSenderPublicKey(): Uint8Array {
+  public _getSenderPublicKey(): Uint8Array {
     return Legacy.getSenderPublicKey(this)
   }
 

@@ -105,6 +105,7 @@ export interface TransactionCache {
     hardfork: string | Hardfork
   }
   senderPubKey?: Uint8Array
+  senderAddress?: Address
 }
 
 /**

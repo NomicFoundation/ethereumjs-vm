@@ -276,7 +276,7 @@ export class AccessListEIP2930Transaction extends BaseTransaction<TransactionTyp
   /**
    * Returns the public key of the sender
    */
-  public getSenderPublicKey(): Uint8Array {
+  public _getSenderPublicKey(): Uint8Array {
     return Legacy.getSenderPublicKey(this)
   }
 

@@ -55,6 +55,7 @@ export abstract class BaseTransaction<T extends TransactionType>
     hash: undefined,
     dataFee: undefined,
     senderPubKey: undefined,
+    senderAddress: undefined,
   }
 
   protected readonly txOptions: TxOptions
@@ -270,13 +271,23 @@ export abstract class BaseTransaction<T extends TransactionType>
    * Returns the sender's address
    */
   getSenderAddress(): Address {
-    return new Address(publicToAddress(this.getSenderPublicKey()))
+    if (this.cache.senderAddress === undefined) {
+      this.cache.senderAddress = new Address(publicToAddress(this.getSenderPublicKey()))
+    }
+    return this.cache.senderAddress
   }
 
   /**
    * Returns the public key of the sender
    */
-  abstract getSenderPublicKey(): Uint8Array
+  abstract _getSenderPublicKey(): Uint8Array
+
+  getSenderPublicKey(): Uint8Array {
+    if (this.cache.senderPubKey === undefined) {
+      this.cache.senderPubKey = this._getSenderPublicKey()
+    }
+    return this.cache.senderPubKey
+  }
 
   /**
    * Signs a transaction.

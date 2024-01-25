@@ -1,5 +1,5 @@
+import { bytesToHex, equalsBytes, hexToBytes, utf8ToBytes } from '@nomicfoundation/ethereumjs-util'
 import { debug as _debug } from 'debug'
-import { bytesToHex, equalsBytes, hexToBytes, utf8ToBytes } from 'ethereum-cryptography/utils'
 
 import { BranchNode, ExtensionNode, LeafNode } from '../node/index.js'
 import { Trie } from '../trie.js'

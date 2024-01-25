@@ -29,7 +29,7 @@ import {
   toType,
   zeros,
 } from '@nomicfoundation/ethereumjs-util'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { CLIQUE_EXTRA_SEAL, CLIQUE_EXTRA_VANITY } from './clique.js'
 import { fakeExponential, valuesArrayToHeaderData } from './helpers.js'
@@ -37,6 +37,10 @@ import { fakeExponential, valuesArrayToHeaderData } from './helpers.js'
 import type { BlockHeaderBytes, BlockOptions, HeaderData, JsonHeader } from './types.js'
 import type { CliqueConfig } from '@nomicfoundation/ethereumjs-common'
 import type { BigIntLike } from '@nomicfoundation/ethereumjs-util'
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 interface HeaderCache {
   hash: Uint8Array | undefined

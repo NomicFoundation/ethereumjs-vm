@@ -10,7 +10,7 @@ import {
   toBytes,
 } from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { AccountCache, CacheType, OriginalStorageCache, StorageCache } from './cache/index.js'
 
@@ -24,6 +24,10 @@ import type {
 import type { Address } from '@nomicfoundation/ethereumjs-util'
 import type { Debugger } from 'debug'
 const { debug: createDebugLogger } = debugDefault
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 export interface RPCStateManagerOpts {
   provider: string

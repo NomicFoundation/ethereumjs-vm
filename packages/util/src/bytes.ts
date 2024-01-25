@@ -1,6 +1,4 @@
 import { getRandomBytesSync } from 'ethereum-cryptography/random.js'
-// eslint-disable-next-line no-restricted-imports
-import { bytesToHex as _bytesToUnprefixedHex } from 'ethereum-cryptography/utils.js'
 
 import { assertIsArray, assertIsBytes, assertIsHexString } from './helpers.js'
 import { isHexPrefixed, isHexString, padToEven, stripHexPrefix } from './internal.js'
@@ -8,6 +6,26 @@ import { isHexPrefixed, isHexString, padToEven, stripHexPrefix } from './interna
 import type { PrefixedHexString, TransformabletoBytes } from './types.js'
 
 const BIGINT_0 = BigInt(0)
+
+function isBytes(a: unknown): a is Uint8Array {
+  return (
+    a instanceof Uint8Array ||
+    // eslint-disable-next-line eqeqeq
+    (a != null && typeof a === 'object' && a.constructor.name === 'Uint8Array')
+  )
+}
+
+const hexes = Array.from({ length: 256 }, (_, i) => i.toString(16).padStart(2, '0'))
+
+export function _bytesToUnprefixedHex(bytes: Uint8Array): string {
+  if (!isBytes(bytes)) throw new Error('Uint8Array expected')
+  // pre-caching improves the speed 6x
+  let hex = ''
+  for (let i = 0; i < bytes.length; i++) {
+    hex += hexes[bytes[i]]
+  }
+  return hex
+}
 
 /**
  * @deprecated
@@ -521,5 +539,28 @@ export function bigInt64ToBytes(value: bigint, littleEndian: boolean = false): U
   return new Uint8Array(buffer)
 }
 
-// eslint-disable-next-line no-restricted-imports
-export { bytesToUtf8, equalsBytes, utf8ToBytes } from 'ethereum-cryptography/utils.js'
+export function equalsBytes(a: Uint8Array, b: Uint8Array): boolean {
+  if (a.length !== b.length) {
+    return false
+  }
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      return false
+    }
+  }
+
+  return true
+}
+
+export function bytesToUtf8(data: Uint8Array): string {
+  if (!(data instanceof Uint8Array)) {
+    throw new TypeError(`bytesToUtf8 expected Uint8Array, got ${typeof data}`)
+  }
+  return new TextDecoder().decode(data)
+}
+
+export function utf8ToBytes(str: string): Uint8Array {
+  if (typeof str !== 'string') throw new Error(`utf8ToBytes expected string, got ${typeof str}`)
+  return new Uint8Array(new TextEncoder().encode(str)) // https://bugzil.la/1681809
+}

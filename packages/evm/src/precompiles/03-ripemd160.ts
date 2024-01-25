@@ -27,13 +27,13 @@ export function precompile03(opts: PrecompileInput): ExecResult {
     return OOGResult(opts.gasLimit)
   }
 
-  const hash = setLengthLeft(ripemd160(data), 32)
+  const hash = setLengthLeft(ripemd160(Buffer.from(data)), 32)
   if (opts._debug !== undefined) {
     opts._debug(`RIPEMD160 (0x03) return hash=${bytesToHex(hash)}`)
   }
 
   return {
     executionGasUsed: gasUsed,
-    returnValue: setLengthLeft(ripemd160(data), 32),
+    returnValue: setLengthLeft(ripemd160(Buffer.from(data)), 32),
   }
 }

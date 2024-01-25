@@ -1,5 +1,5 @@
 import { RLP } from '@nomicfoundation/ethereumjs-rlp'
-import { equalsBytes, toHex } from 'ethereum-cryptography/utils'
+import { equalsBytes, bytesToHex as toHex } from '@nomicfoundation/ethereumjs-util'
 
 import { BranchNode } from '../node/branch.js'
 import { ExtensionNode } from '../node/extension.js'

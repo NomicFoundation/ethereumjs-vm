@@ -6,11 +6,15 @@ import {
   unpadBytes,
   unprefixedHexToBytes,
 } from '@nomicfoundation/ethereumjs-util'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { Trie } from '../trie.js'
 
 import type { AccountState, GenesisState } from '@nomicfoundation/ethereumjs-util'
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 /**
  * Derives the stateRoot of the genesis block based on genesis allocations

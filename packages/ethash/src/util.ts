@@ -50,7 +50,7 @@ export function getEpoc(blockNumber: bigint) {
  */
 export function getSeed(seed: Uint8Array, begin: number, end: number) {
   for (let i = begin; i < end; i++) {
-    seed = keccak256(seed)
+    seed = keccak256(Buffer.from(seed))
   }
   return seed
 }

@@ -3,12 +3,16 @@ import {
   bigIntToUnpaddedBytes,
   ecrecover,
 } from '@nomicfoundation/ethereumjs-util'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { BaseTransaction } from '../baseTransaction.js'
 import { Capability } from '../types.js'
 
 import type { LegacyTxInterface } from '../types.js'
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 export function errorMsg(tx: LegacyTxInterface, msg: string) {
   return `${msg} (${tx.errorStr()})`

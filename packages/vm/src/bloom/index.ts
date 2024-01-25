@@ -1,7 +1,11 @@
 import { zeros } from '@nomicfoundation/ethereumjs-util'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import type { Common } from '@nomicfoundation/ethereumjs-common'
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 const BYTE_SIZE = 256
 

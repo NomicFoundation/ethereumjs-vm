@@ -23,7 +23,7 @@ import {
   utf8ToBytes,
 } from '@nomicfoundation/ethereumjs-util'
 import debugDefault from 'debug'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { AccountCache, CacheType, CodeCache, StorageCache } from './cache/index.js'
 import { OriginalStorageCache } from './cache/originalStorageCache.js'
@@ -37,6 +37,10 @@ import type { StorageRange } from '@nomicfoundation/ethereumjs-common/src'
 import type { DB, PrefixedHexString } from '@nomicfoundation/ethereumjs-util'
 import type { Debugger } from 'debug'
 const { debug: createDebugLogger } = debugDefault
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 export type StorageProof = {
   key: PrefixedHexString

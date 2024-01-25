@@ -15,7 +15,7 @@ import {
   unprefixedHexToBytes,
 } from '@nomicfoundation/ethereumjs-util'
 import debug from 'debug'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { CheckpointDB } from './db/index.js'
 import {
@@ -55,6 +55,10 @@ import type { Debugger } from 'debug'
 // package imports. -- 16/01/24
 // eslint-disable-next-line implicit-dependencies/no-implicit
 import type { ReadableStream } from 'node:stream/web'
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 interface Path {
   node: TrieNode | null

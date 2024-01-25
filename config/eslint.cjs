@@ -111,7 +111,6 @@ module.exports = {
     'prettier/prettier': 'error',
     'simple-import-sort/exports': 'error',
     'sort-imports': ['error', { ignoreDeclarationSort: true }],
-    'ethereumjs/noBuffer': 'error',
   },
   parserOptions: {
     extraFileExtensions: ['.json'],

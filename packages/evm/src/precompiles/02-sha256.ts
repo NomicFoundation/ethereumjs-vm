@@ -27,7 +27,7 @@ export function precompile02(opts: PrecompileInput): ExecResult {
     return OOGResult(opts.gasLimit)
   }
 
-  const hash = sha256Function(data)
+  const hash = sha256Function(Buffer.from(data))
   if (opts._debug !== undefined) {
     opts._debug(`KECCAK256 (0x02) return hash=${bytesToHex(hash)}`)
   }

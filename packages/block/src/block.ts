@@ -20,7 +20,7 @@ import {
   intToHex,
   isHexPrefixed,
 } from '@nomicfoundation/ethereumjs-util'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { executionPayloadFromBeaconPayload } from './from-beacon-payload.js'
 import { blockFromRpc } from './from-rpc.js'
@@ -45,6 +45,10 @@ import type {
   TypedTransaction,
 } from '@nomicfoundation/ethereumjs-tx'
 import type { EthersProvider, WithdrawalBytes } from '@nomicfoundation/ethereumjs-util'
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 /**
  * An object that represents the block.

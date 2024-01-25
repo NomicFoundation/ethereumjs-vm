@@ -5,6 +5,8 @@ import {
   bytesToBigInt,
   bytesToHex,
   bytesToInt32,
+  concatBytes,
+  equalsBytes,
   hexToBytes,
   padToEven,
   setLengthRight,
@@ -14,8 +16,7 @@ import {
 } from '@nomicfoundation/ethereumjs-util'
 import { getKey, getStem, verifyUpdate } from '@nomicfoundation/ethereumjs-verkle'
 import debugDefault from 'debug'
-import { keccak256 } from 'ethereum-cryptography/keccak.js'
-import { concatBytes, equalsBytes } from 'ethereum-cryptography/utils'
+import { keccak256 as bufferKeccak256 } from 'ethereum-cryptography/keccak.js'
 
 import { AccountCache, CacheType, StorageCache } from './cache/index.js'
 import { OriginalStorageCache } from './cache/originalStorageCache.js'
@@ -31,6 +32,10 @@ import type {
   StorageRange,
 } from '@nomicfoundation/ethereumjs-common'
 import type { Address, PrefixedHexString } from '@nomicfoundation/ethereumjs-util'
+
+function keccak256(msg: Uint8Array): Uint8Array {
+  return new Uint8Array(bufferKeccak256(Buffer.from(msg)))
+}
 
 const { debug: createDebugLogger } = debugDefault
 

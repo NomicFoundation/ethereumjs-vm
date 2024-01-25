@@ -1,6 +1,11 @@
 import { RLP } from '@nomicfoundation/ethereumjs-rlp'
 import { keccak256 } from 'ethereum-cryptography/keccak.js'
-import { secp256k1 } from 'ethereum-cryptography/secp256k1.js'
+import {
+  privateKeyVerify,
+  publicKeyConvert,
+  publicKeyCreate,
+  publicKeyVerify,
+} from 'ethereum-cryptography/secp256k1'
 
 import {
   bigIntToUnpaddedBytes,
@@ -173,7 +178,7 @@ export const toChecksumAddress = function (
   }
 
   const bytes = utf8ToBytes(prefix + address)
-  const hash = bytesToHex(keccak256(bytes)).slice(2)
+  const hash = bytesToHex(keccak256(Buffer.from(bytes))).slice(2)
   let ret = '0x'
 
   for (let i = 0; i < address.length; i++) {
@@ -211,11 +216,11 @@ export const generateAddress = function (from: Uint8Array, nonce: Uint8Array): U
   if (bytesToBigInt(nonce) === BIGINT_0) {
     // in RLP we want to encode null in the case of zero nonce
     // read the RLP documentation for an answer if you dare
-    return keccak256(RLP.encode([from, Uint8Array.from([])])).subarray(-20)
+    return keccak256(Buffer.from(RLP.encode([from, Uint8Array.from([])]))).subarray(-20)
   }
 
   // Only take the lower 160bits of the hash
-  return keccak256(RLP.encode([from, nonce])).subarray(-20)
+  return keccak256(Buffer.from(RLP.encode([from, nonce]))).subarray(-20)
 }
 
 /**
@@ -240,7 +245,9 @@ export const generateAddress2 = function (
     throw new Error('Expected salt to be of length 32')
   }
 
-  const address = keccak256(concatBytes(hexToBytes('0xff'), from, salt, keccak256(initCode)))
+  const address = keccak256(
+    Buffer.from(concatBytes(hexToBytes('0xff'), from, salt, keccak256(Buffer.from(initCode))))
+  )
 
   return address.subarray(-20)
 }
@@ -249,7 +256,11 @@ export const generateAddress2 = function (
  * Checks if the private key satisfies the rules of the curve secp256k1.
  */
 export const isValidPrivate = function (privateKey: Uint8Array): boolean {
-  return secp256k1.utils.isValidPrivateKey(privateKey)
+  try {
+    return privateKeyVerify(privateKey)
+  } catch {
+    return false
+  }
 }
 
 /**
@@ -262,25 +273,14 @@ export const isValidPublic = function (publicKey: Uint8Array, sanitize: boolean 
   assertIsBytes(publicKey)
   if (publicKey.length === 64) {
     // Convert to SEC1 for secp256k1
-    // Automatically checks whether point is on curve
-    try {
-      secp256k1.ProjectivePoint.fromHex(concatBytes(Uint8Array.from([4]), publicKey))
-      return true
-    } catch (e) {
-      return false
-    }
+    return publicKeyVerify(Buffer.concat([Buffer.from([4]), publicKey]))
   }
 
   if (!sanitize) {
     return false
   }
 
-  try {
-    secp256k1.ProjectivePoint.fromHex(publicKey)
-    return true
-  } catch (e) {
-    return false
-  }
+  return publicKeyVerify(publicKey)
 }
 
 /**
@@ -292,13 +292,13 @@ export const isValidPublic = function (publicKey: Uint8Array, sanitize: boolean 
 export const pubToAddress = function (pubKey: Uint8Array, sanitize: boolean = false): Uint8Array {
   assertIsBytes(pubKey)
   if (sanitize && pubKey.length !== 64) {
-    pubKey = secp256k1.ProjectivePoint.fromHex(pubKey).toRawBytes(false).slice(1)
+    pubKey = Buffer.from(publicKeyConvert(pubKey, false).slice(1))
   }
   if (pubKey.length !== 64) {
     throw new Error('Expected pubKey to be of length 64')
   }
   // Only take the lower 160bits of the hash
-  return keccak256(pubKey).subarray(-20)
+  return Buffer.from(keccak256(Buffer.from(pubKey))).slice(-20)
 }
 export const publicToAddress = pubToAddress
 
@@ -309,7 +309,7 @@ export const publicToAddress = pubToAddress
 export const privateToPublic = function (privateKey: Uint8Array): Uint8Array {
   assertIsBytes(privateKey)
   // skip the type flag and use the X, Y points
-  return secp256k1.ProjectivePoint.fromPrivateKey(privateKey).toRawBytes(false).slice(1)
+  return Buffer.from(publicKeyCreate(privateKey, false)).slice(1)
 }
 
 /**
@@ -326,7 +326,7 @@ export const privateToAddress = function (privateKey: Uint8Array): Uint8Array {
 export const importPublic = function (publicKey: Uint8Array): Uint8Array {
   assertIsBytes(publicKey)
   if (publicKey.length !== 64) {
-    publicKey = secp256k1.ProjectivePoint.fromHex(publicKey).toRawBytes(false).slice(1)
+    publicKey = Buffer.from(publicKeyConvert(publicKey, false).slice(1))
   }
   return publicKey
 }

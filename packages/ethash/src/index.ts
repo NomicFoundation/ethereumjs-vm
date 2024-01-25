@@ -176,7 +176,7 @@ export class Ethash {
 
   mkcache(cacheSize: number, seed: Uint8Array) {
     const n = Math.floor(cacheSize / params.HASH_BYTES)
-    const o = [keccak512(seed)]
+    const o = [keccak512(Buffer.from(seed))]
 
     let i
     for (i = 1; i < n; i++) {
@@ -186,7 +186,7 @@ export class Ethash {
     for (let _ = 0; _ < params.CACHE_ROUNDS; _++) {
       for (i = 0; i < n; i++) {
         const v = new DataView(o[i].buffer).getUint32(0, true) % n
-        o[i] = keccak512(xor(o[(i - 1 + n) % n], o[v]))
+        o[i] = keccak512(Buffer.from(xor(o[(i - 1 + n) % n], o[v])))
       }
     }
 
@@ -200,12 +200,12 @@ export class Ethash {
     let mix = new Uint8Array(this.cache[i % n])
     const mixView = new DataView(mix.buffer)
     mixView.setUint32(0, mixView.getUint32(0, true) ^ i, true)
-    mix = keccak512(mix)
+    mix = keccak512(Buffer.from(mix))
     for (let j = 0; j < params.DATASET_PARENTS; j++) {
       const cacheIndex = fnv(i ^ j, new DataView(mix.buffer).getUint32((j % r) * 4, true))
       mix = fnvBytes(mix, this.cache[cacheIndex % n])
     }
-    return keccak512(mix)
+    return keccak512(Buffer.from(mix))
   }
 
   run(val: Uint8Array, nonce: Uint8Array, fullSize?: number) {
@@ -218,7 +218,7 @@ export class Ethash {
     }
     const n = Math.floor(fullSize / params.HASH_BYTES)
     const w = Math.floor(params.MIX_BYTES / params.WORD_BYTES)
-    const s = keccak512(concatBytes(val, bytesReverse(nonce)))
+    const s = keccak512(Buffer.from(concatBytes(val, bytesReverse(nonce))))
     const mixhashes = Math.floor(params.MIX_BYTES / params.HASH_BYTES)
     let mix = concatBytes(...Array(mixhashes).fill(s))
 
@@ -250,7 +250,7 @@ export class Ethash {
 
     return {
       mix: cmix,
-      hash: keccak256(concatBytes(s, cmix)),
+      hash: keccak256(Buffer.from(concatBytes(s, cmix))),
     }
   }
 
@@ -266,11 +266,11 @@ export class Ethash {
       result.set(arr, pad)
       pad += arr.length
     }
-    return keccak256(result)
+    return keccak256(Buffer.from(result))
   }
 
   headerHash(rawHeader: Uint8Array[]) {
-    return keccak256(RLP.encode(rawHeader.slice(0, -2)))
+    return keccak256(Buffer.from(RLP.encode(rawHeader.slice(0, -2))))
   }
 
   /**
